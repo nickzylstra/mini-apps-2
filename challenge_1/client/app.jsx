@@ -8,6 +8,10 @@ class App extends Component {
     };
   }
 
+  async componentDidMount() {
+
+  }
+
   render() {
     return (
       <>
