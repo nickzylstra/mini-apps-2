@@ -16,11 +16,12 @@ class App extends Component {
     this.getEvents();
   }
 
-  async getEvents(page = 1, limit = 10) {
+  async getEvents(page = 1, limit = 10, searchTerm) {
     const res = await axios.get(`${host}/events`, {
       params: {
         _page: page,
         _limit: limit,
+        q: searchTerm,
       },
     });
 

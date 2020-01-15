@@ -6,9 +6,9 @@ import Event from './Event.jsx';
 const Events = (props) => {
   const { events } = props;
   return (
-    <>
+    <div>
       {events.map((event, idx) => <Event key={idx} event={event} />)}
-    </>
+    </div>
   );
 };
 
