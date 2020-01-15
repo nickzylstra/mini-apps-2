@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Events from './Events.jsx';
 
 const host = 'http://localhost:3000';
 
@@ -16,19 +17,20 @@ class App extends Component {
   }
 
   async getEvents(page = 1, limit = 10) {
-    const events = await axios.get(`${host}/events`, {
-      _page: page,
-      _limit: limit,
+    const res = await axios.get(`${host}/events`, {
+      params: {
+        _page: page,
+        _limit: limit,
+      },
     });
 
-    this.setState({ events });
+    this.setState({ events: res.data });
   }
 
   render() {
+    const { events } = this.state;
     return (
-      <>
-        hi
-      </>
+      <Events events={events} />
     );
   }
 }

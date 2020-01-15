@@ -22,6 +22,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    "import/extensions": ['error', 'always', {ignorePackages: true} ]
+    "import/extensions": ['error', 'always', {ignorePackages: true} ],
+    "react/prop-types": 0
   },
 };
