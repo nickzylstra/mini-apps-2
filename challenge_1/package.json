@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack -w -d",
+    "start:dev": "json-server --watch data/db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "json-server": "^0.15.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
