@@ -7,19 +7,16 @@ const Event = (props) => {
     <div
       className="card"
       style={{
-        width: '30rem',
+        width: '50rem',
         margin: '20px',
       }}
     >
       <div className="card-header">
-        Event
+        Event Date:
+        {' '}
+        {date}
       </div>
       <div className="list-group list-group-flush">
-        <span className="list-group-item">
-          Date:
-          {' '}
-          {date}
-        </span>
         <div className="list-group-item">
           Description:
           {' '}
