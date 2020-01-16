@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
       events: [],
       query: '',
+      page: 1,
+      eventsPerPage: 10,
     };
 
     this.getEvents = this.getEvents.bind(this);
@@ -21,15 +23,15 @@ class App extends Component {
     this.getEvents();
   }
 
-  async getEvents(query, page = 1, limit = 10) {
+  async getEvents(query) {
+    const { page, eventsPerPage } = this.state;
     const res = await axios.get(`${host}/events`, {
       params: {
         _page: page,
-        _limit: limit,
+        _limit: eventsPerPage,
         q: query,
       },
     });
-
     this.setState({ events: res.data });
   }
 
