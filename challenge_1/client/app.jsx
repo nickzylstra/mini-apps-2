@@ -19,6 +19,7 @@ class App extends Component {
 
     this.getEvents = this.getEvents.bind(this);
     this.searchEvents = this.searchEvents.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   async componentDidMount() {
@@ -35,7 +36,8 @@ class App extends Component {
       },
     });
     const { link } = res.headers;
-    const pageCount = link ? parseInt(link.match(/next.*page=(\d+).*last/)[1], 10) : 1;
+    const pageCountSearch = link.match(/(next|prev).*page=(\d+).*last/);
+    const pageCount = pageCountSearch ? parseInt(pageCountSearch[2], 10) : 1;
     this.setState({ events: res.data, pageCount });
   }
 
@@ -44,30 +46,38 @@ class App extends Component {
   }
 
   handlePageClick({ selected }) {
-    this.setState({ page: selected }, () => this.getEvents);
+    this.setState({ page: selected + 1 }, () => this.getEvents());
   }
 
   render() {
     const {
-      events, query, page, pageCount, eventsPerPage,
+      events, query, page, pageCount,
     } = this.state;
     return (
       <>
-        <Search query={query} searchEvents={this.searchEvents} />
-        <ReactPaginate
-          previousLabel="previous"
-          nextLabel="next"
-          breakLabel="..."
-          breakClassName="break-me"
-          pageCount={pageCount}
-          marginPagesDisplayed={1}
-          // pageRangeDisplayed={5}
-          onPageChange={this.handlePageClick}
-          containerClassName="pagination"
-          subContainerClassName="pages pagination"
-          activeClassName="active"
-        />
-        <Events events={events} />
+        <div className="container">
+          <Search query={query} searchEvents={this.searchEvents} />
+        </div>
+        <div className="container">
+          <div id="react-paginate">
+            <ReactPaginate
+              previousLabel="previous"
+              nextLabel="next"
+              breakLabel="..."
+              breakClassName="break-me"
+              pageCount={pageCount}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={5}
+              onPageChange={this.handlePageClick}
+              containerClassName="pagination"
+              subContainerClassName="pages pagination"
+              activeClassName="active"
+            />
+          </div>
+        </div>
+        <div className="container">
+          <Events events={events} />
+        </div>
       </>
     );
   }
