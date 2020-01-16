@@ -12,5 +12,6 @@
 }
 
 #react-paginate li:hover {
+  background-color: lightgray;
   color: blue;
 }

@@ -51,7 +51,7 @@ class App extends Component {
 
   render() {
     const {
-      events, query, page, pageCount,
+      events, query, pageCount,
     } = this.state;
     return (
       <>
@@ -70,7 +70,7 @@ class App extends Component {
               pageRangeDisplayed={5}
               onPageChange={this.handlePageClick}
               containerClassName="pagination"
-              subContainerClassName="pages pagination"
+              subContainerClassName="page-item page-link"
               activeClassName="active"
             />
           </div>
