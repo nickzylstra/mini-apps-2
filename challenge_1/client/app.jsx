@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
 import Search from './Search.jsx';
 import Events from './Events.jsx';
 
@@ -12,6 +13,7 @@ class App extends Component {
       events: [],
       query: '',
       page: 1,
+      pageCount: 1,
       eventsPerPage: 10,
     };
 
@@ -23,8 +25,8 @@ class App extends Component {
     this.getEvents();
   }
 
-  async getEvents(query) {
-    const { page, eventsPerPage } = this.state;
+  async getEvents() {
+    const { page, eventsPerPage, query } = this.state;
     const res = await axios.get(`${host}/events`, {
       params: {
         _page: page,
@@ -32,22 +34,39 @@ class App extends Component {
         q: query,
       },
     });
-    this.setState({ events: res.data });
+    const { link } = res.headers;
+    const pageCount = link ? parseInt(link.match(/next.*page=(\d+).*last/)[1], 10) : 1;
+    this.setState({ events: res.data, pageCount });
   }
 
   async searchEvents(query) {
-    this.setState({ query }, () => {
-      // eslint-disable-next-line no-shadow
-      const { query } = this.state;
-      this.getEvents(query);
-    });
+    this.setState({ query }, () => this.getEvents());
+  }
+
+  handlePageClick({ selected }) {
+    this.setState({ page: selected }, () => this.getEvents);
   }
 
   render() {
-    const { events, query } = this.state;
+    const {
+      events, query, page, pageCount, eventsPerPage,
+    } = this.state;
     return (
       <>
         <Search query={query} searchEvents={this.searchEvents} />
+        <ReactPaginate
+          previousLabel="previous"
+          nextLabel="next"
+          breakLabel="..."
+          breakClassName="break-me"
+          pageCount={pageCount}
+          marginPagesDisplayed={1}
+          // pageRangeDisplayed={5}
+          onPageChange={this.handlePageClick}
+          containerClassName="pagination"
+          subContainerClassName="pages pagination"
+          activeClassName="active"
+        />
         <Events events={events} />
       </>
     );
