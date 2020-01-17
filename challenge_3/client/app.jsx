@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import Scoreboard from './components/Scoreboard.jsx';
 import RollInput from './components/RollInput.jsx';
 
+const testScoreFrames = new Array(10);
+testScoreFrames[0] = [4, 3];
+testScoreFrames[1] = [4, 6];
+testScoreFrames[2] = [10, 0];
+testScoreFrames[3] = [3, 3];
+
 const App = () => {
   const [scoreTotal, setScoreTotal] = useState(0);
-  const [scoreFrames, setScoreFrames] = useState(new Array(10));
+  const [scoreFrames, setScoreFrames] = useState(testScoreFrames);
+  // const [scoreFrames, setScoreFrames] = useState(new Array(10));
   const [frame, setFrame] = useState(1);
 
   return (
