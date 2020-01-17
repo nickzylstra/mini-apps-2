@@ -12,15 +12,16 @@ const Graph = (props) => {
 
     // eslint-disable-next-line no-new
     new Chart(chartContext, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels,
         datasets: [{
-          label: 'Date',
+          label: 'Closing Price (USD)',
           data: prices,
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-          ],
+          borderColor: 'rgba(0, 0, 255, 0.8)',
+          backgroundColor: 'rgba(0, 0, 255, 0.8)',
+          pointHitRadius: 3,
+          borderWidth: 1,
         }],
       },
       options: {
@@ -36,12 +37,12 @@ const Graph = (props) => {
   }, [labels, prices]);
 
   return (
-    <canvas
-      id="chartCanvas"
-      ref={chartRef}
-      width="400"
-      height="400"
-    />
+    <div style={{ backgroundColor: 'black' }}>
+      <canvas
+        id="chartCanvas"
+        ref={chartRef}
+      />
+    </div>
   );
 };
 

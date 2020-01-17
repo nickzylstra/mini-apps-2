@@ -14,7 +14,7 @@ const getPrices = async (start, end, setLabels, setPrices) => {
       },
     });
     setLabels(Object.keys(res.data.bpi));
-    setPrices(Object.values(res.data.bpi));
+    setPrices(Object.values(res.data.bpi).map((price) => Math.trunc(price * 100) / 100));
   } catch (error) {
     console.log(error);
   }
