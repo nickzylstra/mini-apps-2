@@ -9,7 +9,7 @@ const App = () => {
   const [frame, setFrame] = useState(1);
 
   const addRoll = (roll) => {
-
+    console.log(roll);
   };
 
   return (

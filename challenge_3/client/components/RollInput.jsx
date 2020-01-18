@@ -39,7 +39,7 @@ const RollInput = (props) => {
     : '';
 
   return (
-    <div className="container">
+    <div id="rollInput" className="container">
       <input
         className="formControl"
         value={pinCount}
