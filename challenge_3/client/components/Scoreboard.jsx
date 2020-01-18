@@ -6,8 +6,8 @@ const Scoreboard = (props) => {
 
   return (
     <div className="container">
-      <div>
-        {scoreTotal}
+      <div className="h3">
+        {`Game Score: ${scoreTotal}`}
       </div>
       <ul className="list-group list-group-horizontal">
         {scoreFrames.map((scoreFrame, idx) => (
