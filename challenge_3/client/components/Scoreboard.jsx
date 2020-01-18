@@ -6,10 +6,10 @@ const Scoreboard = (props) => {
 
   return (
     <div className="container">
-      <div className="h3">
+      <div id="scoreboardTotal" className="h3">
         {`Game Score: ${scoreTotal}`}
       </div>
-      <ul className="list-group list-group-horizontal">
+      <ul id="scoreboardFrames" className="list-group list-group-horizontal">
         {scoreFrames.map((scoreFrame, idx) => (
           <Frame
             // eslint-disable-next-line react/no-array-index-key

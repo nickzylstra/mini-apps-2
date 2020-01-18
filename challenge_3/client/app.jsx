@@ -9,8 +9,8 @@ testScoreFrames[2] = [10, 0, 16];
 testScoreFrames[3] = [3, 3, 6];
 
 const App = () => {
-  const [scoreTotal, setScoreTotal] = useState(0);
   const [scoreFrames, setScoreFrames] = useState(testScoreFrames);
+  const scoreTotal = scoreFrames.reduce((total, sF) => total + sF[2], 0);
   // const [scoreFrames, setScoreFrames] = useState((new Array(10)).fill(['', '', '']));
   const [frame, setFrame] = useState(1);
 
@@ -21,8 +21,6 @@ const App = () => {
         scoreFrames={scoreFrames}
       />
       <RollInput
-        scoreTotal={scoreTotal}
-        setScoreTotal={setScoreTotal}
         scoreFrames={scoreFrames}
         setScoreFrames={setScoreFrames}
         frame={frame}
