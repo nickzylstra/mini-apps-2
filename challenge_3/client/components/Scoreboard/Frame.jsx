@@ -1,17 +1,18 @@
 import React from 'react';
 
 const Frame = (props) => {
-  const { scoreFrame } = props;
+  const { scoreFrame, frame } = props;
 
   return (
     <div className="list-group-item flex-fill">
-      <div>
+      <span className="h5">{`${frame}  `}</span>
+      <span>
         {scoreFrame[0]}
         {'  '}
         {scoreFrame[1]}
-      </div>
-      <div>
-        {scoreFrame[0] + scoreFrame[1]}
+      </span>
+      <div className="h3">
+        {scoreFrame[2]}
       </div>
     </div>
   );

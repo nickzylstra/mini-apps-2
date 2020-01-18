@@ -5,7 +5,7 @@ const Scoreboard = (props) => {
   const { scoreFrames, scoreTotal } = props;
 
   return (
-    <div>
+    <div className="container">
       <div>
         {scoreTotal}
       </div>
@@ -14,6 +14,7 @@ const Scoreboard = (props) => {
           <Frame
             // eslint-disable-next-line react/no-array-index-key
             key={idx}
+            frame={idx + 1}
             scoreFrame={scoreFrame}
           />
         ))}
