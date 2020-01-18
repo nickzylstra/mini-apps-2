@@ -11,7 +11,7 @@ testScoreFrames[3] = [3, 3, 6];
 const App = () => {
   const [scoreTotal, setScoreTotal] = useState(0);
   const [scoreFrames, setScoreFrames] = useState(testScoreFrames);
-  // const [scoreFrames, setScoreFrames] = useState(new Array(10));
+  // const [scoreFrames, setScoreFrames] = useState((new Array(10)).fill(['', '', '']));
   const [frame, setFrame] = useState(1);
 
   return (
