@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Scoreboard from './Scoreboard.jsx';
 
-describe('Frame', () => {
+describe('Scoreboard', () => {
   const scoreFrames = [
     [4, 3, 7],
     [4, 6, 20],

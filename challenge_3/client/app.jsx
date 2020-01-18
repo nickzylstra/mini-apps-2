@@ -10,12 +10,13 @@ testScoreFrames[3] = [3, 3, 6];
 
 const App = () => {
   const [scoreFrames, setScoreFrames] = useState(testScoreFrames);
+  // const [scoreFrames, setScoreFrames] = useState((new Array(10)).fill([null, null, null]));
   const scoreTotal = scoreFrames.reduce((total, sF) => total + sF[2], 0);
-  // const [scoreFrames, setScoreFrames] = useState((new Array(10)).fill(['', '', '']));
-  const [frame, setFrame] = useState(1);
+  const [frame, setFrame] = useState(5);
+  // const [frame, setFrame] = useState(1);
 
   return (
-    <div>
+    <div id="app">
       <Scoreboard
         scoreTotal={scoreTotal}
         scoreFrames={scoreFrames}
