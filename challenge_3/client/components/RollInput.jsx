@@ -3,7 +3,7 @@ import React from 'react';
 const RollInput = (props) => {
 
   return (
-    <div>
+    <div className="container">
       Roll Input
     </div>
   );
