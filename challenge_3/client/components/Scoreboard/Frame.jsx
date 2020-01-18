@@ -4,17 +4,16 @@ const Frame = (props) => {
   const { scoreFrame } = props;
 
   return (
-    <span>
+    <div className="list-group-item flex-fill">
       <div>
-        <div>
-          {scoreFrame[0]}
-          {scoreFrame[1]}
-        </div>
-        <div>
-          {scoreFrame[0] + scoreFrame[1]}
-        </div>
+        {scoreFrame[0]}
+        {'  '}
+        {scoreFrame[1]}
       </div>
-    </span>
+      <div>
+        {scoreFrame[0] + scoreFrame[1]}
+      </div>
+    </div>
   );
 };
 

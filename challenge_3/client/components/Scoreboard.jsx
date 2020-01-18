@@ -9,13 +9,15 @@ const Scoreboard = (props) => {
       <div>
         {scoreTotal}
       </div>
-      <div>
-        {scoreFrames.map((scoreFrame) => (
+      <ul className="list-group list-group-horizontal">
+        {scoreFrames.map((scoreFrame, idx) => (
           <Frame
+            // eslint-disable-next-line react/no-array-index-key
+            key={idx}
             scoreFrame={scoreFrame}
           />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
