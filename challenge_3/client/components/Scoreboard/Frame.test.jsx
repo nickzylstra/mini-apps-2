@@ -1,3 +1,5 @@
+import { shallow, mount, render } from 'enzyme';
+
 function sum(a, b) {
   return a + b;
 }
