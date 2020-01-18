@@ -7,7 +7,8 @@
     "build:dev": "webpack -d -w",
     "start:dev": "nodemon --inspect server/server.js",
     "start": "node server.js",
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "node --inspect-brk=9230 node_modules/.bin/jest --runInBand"
   },
   "keywords": [],
   "author": "",

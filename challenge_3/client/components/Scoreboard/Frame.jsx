@@ -5,13 +5,13 @@ const Frame = (props) => {
 
   return (
     <div className="list-group-item flex-fill">
-      <span className="h5">{`${frame}  `}</span>
+      <span id="frameNum" className="h5">{`${frame}  `}</span>
       <span>
         {scoreFrame[0]}
         {'  '}
         {scoreFrame[1]}
       </span>
-      <div className="h3">
+      <div id="frameScore" className="h3">
         {scoreFrame[2]}
       </div>
     </div>
