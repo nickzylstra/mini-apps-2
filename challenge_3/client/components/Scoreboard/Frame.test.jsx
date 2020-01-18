@@ -9,4 +9,7 @@ describe('Frame', () => {
   test('renders frameNum element with passed frame number prop', () => {
     expect(wrapper.find('#frameNum').getElements()[0].props.children).toBe(`${frame}  `);
   });
+  test('renders frameScore element with passed frameScore prop', () => {
+    expect(wrapper.find('#frameScore').getElements()[0].props.children).toBe(scoreFrame[2]);
+  });
 });
