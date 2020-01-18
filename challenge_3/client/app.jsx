@@ -8,6 +8,10 @@ const App = () => {
   const scoreTotal = scoreFrames.reduce((total, sF) => total + sF[2], 0);
   const [frame, setFrame] = useState(1);
 
+  const addRoll = (roll) => {
+
+  };
+
   return (
     <div id="app">
       <Scoreboard
@@ -15,10 +19,7 @@ const App = () => {
         scoreFrames={scoreFrames}
       />
       <RollInput
-        scoreFrames={scoreFrames}
-        setScoreFrames={setScoreFrames}
-        frame={frame}
-        setFrame={setFrame}
+        addRoll={addRoll}
       />
     </div>
   );
