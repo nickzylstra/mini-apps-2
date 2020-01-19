@@ -8,6 +8,7 @@
     "start:dev": "nodemon --inspect server/server.js",
     "start": "node server.js",
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "test:debug": "node --inspect-brk=9230 node_modules/.bin/jest --runInBand"
   },
   "keywords": [],
