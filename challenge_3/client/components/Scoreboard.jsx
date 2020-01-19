@@ -10,14 +10,16 @@ const Scoreboard = (props) => {
         {`Game Score: ${scoreTotal}`}
       </div>
       <ul id="scoreboardFrames" className="list-group list-group-horizontal">
-        {scoreFrames.map((scoreFrame, idx) => (
-          <Frame
-            // eslint-disable-next-line react/no-array-index-key
-            key={idx}
-            frame={idx + 1}
-            scoreFrame={scoreFrame}
-          />
-        ))}
+        {scoreFrames.map((scoreFrame, idx) => {
+          const key = JSON.stringify(scoreFrame) + idx;
+          return (
+            <Frame
+              key={key}
+              frame={idx + 1}
+              scoreFrame={scoreFrame}
+            />
+          );
+        })}
       </ul>
     </div>
   );

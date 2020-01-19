@@ -31,6 +31,7 @@ const RollInput = (props) => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && isValidInput) {
       addRoll(pinCount);
+      setPinCount('');
     }
   };
 
