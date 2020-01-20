@@ -13,7 +13,6 @@ const App = () => {
   const addRoll = (pinCount) => {
     const nextScoreFrames = [...scoreFrames].map((sF) => [...sF]);
     const scoreFramesIdx = frame - 1;
-    // debugger;
     if (!scoreFrames[scoreFramesIdx][0]) {
       nextScoreFrames[scoreFramesIdx][0] = pinCount;
       nextScoreFrames[scoreFramesIdx][2] += pinCount;
