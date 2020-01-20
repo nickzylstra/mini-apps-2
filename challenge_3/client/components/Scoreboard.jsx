@@ -6,10 +6,10 @@ const Scoreboard = (props) => {
 
   return (
     <div className="container">
-      <div id="scoreboardTotal" className="h3">
+      <div className="h3 scoreboardTotal">
         {`Game Score: ${score}`}
       </div>
-      <ul id="scoreboardFrames" className="list-group list-group-horizontal">
+      <ul className="list-group list-group-horizontal scoreboardFrames">
         {frames.map((frame, idx) => {
           const key = JSON.stringify(frame) + idx;
           return (

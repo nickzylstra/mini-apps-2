@@ -3,28 +3,30 @@ import { shallow } from 'enzyme';
 import Scoreboard from './Scoreboard.jsx';
 
 describe('Scoreboard', () => {
-  const scoreFrames = [
-    [4, 3, 7],
-    [4, 6, 20],
-    [10, 0, 16],
-    [3, 3, 6],
-    [3, 3, 6],
-    [3, 3, 6],
-    [3, 3, 6],
-    [3, 3, 6],
-    [3, 3, 6],
-    [10, 3, 19, 6],
+  const frames = [
+    { roll1: 4, roll2: 3, score: 7 },
+    { roll1: 4, roll2: 6, score: 20 },
+    { roll1: 10, roll2: 0, score: 16 },
+    { roll1: 3, roll2: 3, score: 6 },
+    { roll1: 3, roll2: 3, score: 6 },
+    { roll1: 3, roll2: 3, score: 6 },
+    { roll1: 3, roll2: 3, score: 6 },
+    { roll1: 3, roll2: 3, score: 6 },
+    { roll1: 3, roll2: 3, score: 6 },
+    {
+      roll1: 10, roll2: 3, score: 19, roll3: 6,
+    },
   ];
-  const scoreTotal = scoreFrames.reduce((total, sF) => total + sF[2], 0);
+  const score = frames.reduce((total, sF) => total + sF[2], 0);
 
   const wrapper = shallow(<Scoreboard
-    scoreTotal={scoreTotal}
-    scoreFrames={scoreFrames}
+    score={score}
+    frames={frames}
   />);
   test('renders scoreboardTotal element with passed prop', () => {
-    expect(wrapper.find('#scoreboardTotal').getElements()[0].props.children).toBe(`Game Score: ${scoreTotal}`);
+    expect(wrapper.find('.scoreboardTotal').getElements()[0].props.children).toBe(`Game Score: ${score}`);
   });
   test('renders scoreboardFrames with correct amount of frames', () => {
-    expect(wrapper.find('#scoreboardFrames').getElements()[0].props.children.length).toBe(10);
+    expect(wrapper.find('.scoreboardFrames').getElements()[0].props.children.length).toBe(10);
   });
 });
