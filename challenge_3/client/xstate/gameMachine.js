@@ -33,7 +33,22 @@ const gameMachine = Machine(
       frameFirstRollHist1X: {},
       frameFirstRollHist2X: {},
       frameFirstRollHistSP: {},
-      frameSecondRollHistNo: {},
+      frameSecondRollHistNo: {
+        on: {
+          ROLL: [
+            {
+              target: 'frameFirstRollHistSP',
+              cond: 'isSpare',
+              actions: [
+
+              ],
+            },
+            {
+
+            },
+          ],
+        },
+      },
       frameSecondRollHistX: {},
     },
   },
@@ -46,7 +61,7 @@ const gameMachine = Machine(
         frames: ({ frames, currentFrame }, { pinCount }) => {
           const nextFrames = [...frames].map((sF) => [...sF]);
 
-          nextFrames[currentFrame - 1][0] = pinCount;
+          nextFrames[currentFrame - 1][1] = pinCount;
           return nextFrames;
         },
       }),
@@ -60,7 +75,9 @@ const gameMachine = Machine(
       }),
     },
     guards: {
-      isStrike: (context, event) => event.pinCount === 10,
+      isStrike: (context, { pinCount }) => pinCount === 10,
+      isSpare: ({ frames, currentFrame }, { pinCount }) => (
+        frames[currentFrame - 1][1] + pinCount === 10),
     },
   },
 );

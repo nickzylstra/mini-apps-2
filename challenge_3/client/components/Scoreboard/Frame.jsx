@@ -7,12 +7,12 @@ const Frame = (props) => {
     <div className="list-group-item flex-fill">
       <span id="frameNum" className="h5">{`${frameNum}  `}</span>
       <span>
-        {frame[0]}
-        {'  '}
         {frame[1]}
+        {'  '}
+        {frame[2]}
       </span>
       <div id="frameScore" className="h3">
-        {frame[2]}
+        {frame[0]}
       </div>
     </div>
   );
