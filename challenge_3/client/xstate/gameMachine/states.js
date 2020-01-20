@@ -3,7 +3,7 @@ const states = {
     on: {
       ROLL: [
         {
-          target: 'frameSecondRollHistX',
+          target: 'frameFirstRollHist1X',
           cond: 'isStrike',
           actions: [
             'updateCurrentFrameFirstRoll',
@@ -16,8 +16,28 @@ const states = {
         },
       ],
     },
+    meta: {
+      test: () => {},
+    },
   },
-  frameFirstRollHist1X: {},
+  frameFirstRollHist1X: {
+    on: {
+      ROLL: [
+        {
+          target: 'frameFirstRollHist2X',
+          cond: 'isStrike',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'incrementCurrentFrame',
+          ],
+        },
+        {
+          target: 'frameSecondRollHistX',
+          actions: 'updateCurrentFrameFirstRoll',
+        },
+      ],
+    },
+  },
   frameFirstRollHist2X: {},
   frameFirstRollHistSP: {},
   frameSecondRollHistNo: {
