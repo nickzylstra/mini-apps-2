@@ -1,4 +1,4 @@
-export default {
+const states = {
   frameFirstRollHistNo: {
     on: {
       ROLL: [
@@ -48,3 +48,5 @@ export default {
   },
   frameSecondRollHistX: {},
 };
+
+export default states;

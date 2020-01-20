@@ -2,7 +2,7 @@ import { assign } from 'xstate';
 
 const copyFrames = (frames) => [...frames].map((frame) => ({ ...frame }));
 
-export default {
+const actions = {
   updateScore: assign({
     score: ({ frames }) => frames.reduce((total, frame) => total + frame.score, 0),
   }),
@@ -45,3 +45,5 @@ export default {
     currentScoringFrame: ({ currentScoringFrame }) => currentScoringFrame + 1,
   }),
 };
+
+export default actions;
