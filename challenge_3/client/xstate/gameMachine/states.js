@@ -2,6 +2,13 @@ const states = {
   frameFirstRollHistNo: {
     on: {
       ROLL: [
+        // {
+        //   target: 'frameSecondRollHist1X',
+        //   cond: 'isStrike10Frame',
+        //   actions: [
+        //     'updateCurrentFrameFirstRoll',
+        //   ],
+        // },
         {
           target: 'frameFirstRollHist1X',
           cond: 'isStrike',
@@ -44,6 +51,22 @@ const states = {
     on: {
       ROLL: [
         {
+          target: 'frameThirdRoll',
+          cond: 'isSpare10Frame',
+          actions: [
+            'updateCurrentFrameSecondRoll',
+          ],
+        },
+        {
+          target: 'finished',
+          cond: 'is10Frame',
+          actions: [
+            'updateCurrentFrameSecondRoll',
+            'updateFramesScore',
+            'updateScore',
+          ],
+        },
+        {
           target: 'frameFirstRollHistSP',
           cond: 'isSpare',
           actions: [
@@ -72,7 +95,7 @@ const states = {
       ROLL: {
         target: 'finished',
         actions: [
-          'add10FrameThirdRoll',
+          'addThirdRoll10Frame',
           'updateFramesScore',
           'updateScore',
         ],

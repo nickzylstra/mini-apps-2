@@ -20,7 +20,7 @@ const actions = {
       return nextFrames;
     },
   }),
-  add10FrameThirdRoll: assign({
+  addThirdRoll10Frame: assign({
     frames: ({ frames }, { pinCount }) => {
       const nextFrames = copyFrames(frames);
       nextFrames[9].roll3 = pinCount;
