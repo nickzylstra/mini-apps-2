@@ -6,16 +6,12 @@ const gameMachine = Machine(
     id: 'game',
     initial: 'frameFirstRollHistNo',
     context: {
-      scoreTotal: 0,
-      scoreFrames: (new Array(10)).fill([null, null, null]),
-      frame: 1,
+      score: 0,
+      frames: (new Array(10)).fill([null, null, null]),
+      currentFrame: 1,
+      currentScoredFrame: 0,
     },
     states: {
-      // gameStart: {
-      //   on: {
-      //     START: 'frameFirstRollHistNo',
-      //   },
-      // },
       frameFirstRollHistNo: {
         on: {
           ROLL: [
@@ -23,12 +19,13 @@ const gameMachine = Machine(
               target: 'frameSecondRollHistX',
               cond: 'isStrike',
               actions: [
-                // 'updateScoreFrames',
-                'updateFrame',
+                'updateFramesFirstRoll',
+                'incrementFrame',
               ],
             },
             {
               target: 'frameSecondRollHistNo',
+              actions: 'updateFramesFirstRoll',
             },
           ],
         },
@@ -42,12 +39,24 @@ const gameMachine = Machine(
   },
   {
     actions: {
-      updateScoreTotal: assign({
-        scoreTotal: ({ scoreTotal }, { pinCount }) => scoreTotal + pinCount,
+      updateScore: assign({
+        score: ({ score }, { pinCount }) => score + pinCount,
       }),
-      // updateScoreFrames: assign({}),
-      updateFrame: assign({
-        frame: ({ frame }) => frame + 1,
+      updateFramesFirstRoll: assign({
+        frames: ({ frames, currentFrame }, { pinCount }) => {
+          const nextFrames = [...frames].map((sF) => [...sF]);
+
+          nextFrames[currentFrame - 1][0] = pinCount;
+          return nextFrames;
+        },
+      }),
+      // updateFramesSecondRoll: null,
+      // updateFramesScore: null,
+      incrementFrame: assign({
+        currentFrame: ({ currentFrame }) => currentFrame + 1,
+      }),
+      incrementScoredFrame: assign({
+        currentScoredFrame: ({ currentScoredFrame }) => currentScoredFrame + 1,
       }),
     },
     guards: {
