@@ -16,9 +16,9 @@ const states = {
         },
       ],
     },
-    meta: {
-      test: () => {},
-    },
+    // meta: {
+    //   test: () => {},
+    // },
   },
   frameFirstRollHist1X: {
     on: {
@@ -67,6 +67,21 @@ const states = {
     },
   },
   frameSecondRollHistX: {},
+  frameThirdRoll: {
+    on: {
+      ROLL: {
+        target: 'finished',
+        actions: [
+          'addThirdRoll',
+          'updateFramesScore',
+          'updateScore',
+        ],
+      },
+    },
+  },
+  finished: {
+    type: 'final',
+  },
 };
 
 export default states;

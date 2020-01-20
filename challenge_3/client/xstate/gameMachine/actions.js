@@ -23,6 +23,7 @@ const actions = {
   updateFramesScore: assign({
     frames: ({ frames, currentFrame, currentScoringFrame }) => {
       const { roll1, roll2 } = frames[currentFrame - 1];
+      const roll3 = frames[9].roll3 || 0;
       const nextFrames = copyFrames(frames);
       switch (currentFrame - currentScoringFrame) {
         case 2:
@@ -32,7 +33,7 @@ const actions = {
           // TODO - handle spare or single strike scoring
           break;
         default:
-          nextFrames[currentScoringFrame - 1].score = roll1 + roll2;
+          nextFrames[currentScoringFrame - 1].score = roll1 + roll2 + roll3;
           break;
       }
       return nextFrames;
