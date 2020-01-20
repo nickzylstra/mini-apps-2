@@ -6,10 +6,10 @@ const gameModel = createModel(gameMachine).withEvents({
     // exec: async (ctx, event) => {},
     cases: [
       { pinCount: 0 },
-      { pinCount: 3 },
-      { pinCount: 5 },
-      { pinCount: 7 },
-      { pinCount: 10 },
+      // { pinCount: 3 },
+      // { pinCount: 5 },
+      // { pinCount: 7 },
+      // { pinCount: 10 },
     ],
   },
 });

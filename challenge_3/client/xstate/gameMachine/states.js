@@ -3,15 +3,15 @@ const states = {
     on: {
       ROLL: [
         // {
-        //   target: 'frameSecondRollHist1X',
         //   cond: 'isStrike10Frame',
+        //   target: 'frameSecondRollHist1X',
         //   actions: [
         //     'updateCurrentFrameFirstRoll',
         //   ],
         // },
         {
-          target: 'frameFirstRollHist1X',
           cond: 'isStrike',
+          target: 'frameFirstRollHist1X',
           actions: [
             'updateCurrentFrameFirstRoll',
             'incrementCurrentFrame',
@@ -31,8 +31,15 @@ const states = {
     on: {
       ROLL: [
         {
-          target: 'frameFirstRollHist2X',
+          cond: 'isStrike10Frame',
+          target: 'frameSecondRollHistX',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+          ],
+        },
+        {
           cond: 'isStrike',
+          target: 'frameFirstRollHist2X',
           actions: [
             'updateCurrentFrameFirstRoll',
             'incrementCurrentFrame',
@@ -51,15 +58,15 @@ const states = {
     on: {
       ROLL: [
         {
-          target: 'frameThirdRoll',
           cond: 'isSpare10Frame',
+          target: 'frame10ThirdRoll',
           actions: [
             'updateCurrentFrameSecondRoll',
           ],
         },
         {
-          target: 'finished',
           cond: 'is10Frame',
+          target: 'finished',
           actions: [
             'updateCurrentFrameSecondRoll',
             'updateFramesScore',
@@ -67,16 +74,16 @@ const states = {
           ],
         },
         {
-          target: 'frameFirstRollHistSP',
           cond: 'isSpare',
+          target: 'frameFirstRollHistSP',
           actions: [
             'updateCurrentFrameSecondRoll',
             'incrementCurrentFrame',
           ],
         },
         {
-          target: 'frameFirstRollHistNo',
           cond: 'isValidSecondRoll',
+          target: 'frameFirstRollHistNo',
           actions: [
             'updateCurrentFrameSecondRoll',
             'updateFramesScore',
@@ -90,7 +97,7 @@ const states = {
     },
   },
   frameSecondRollHistX: {},
-  frameThirdRoll: {
+  frame10ThirdRoll: {
     on: {
       ROLL: {
         target: 'finished',
