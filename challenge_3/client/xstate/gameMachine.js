@@ -48,13 +48,16 @@ const gameMachine = Machine(
             },
             {
               target: 'frameFirstRollHistNo',
+              cond: 'isValidSecondRoll',
               actions: [
                 'updateCurrentFrameSecondRoll',
                 'updateFramesScore',
                 'incrementCurrentFrame',
                 'incrementScoredFrame',
+                'updateScore',
               ],
             },
+            // TODO - handle invalid second roll with error message
           ],
         },
       },
@@ -63,9 +66,9 @@ const gameMachine = Machine(
   },
   {
     actions: {
-      // updateScore: assign({
-      //   score: ({ score }, { pinCount }) => score + pinCount,
-      // }),
+      updateScore: assign({
+        score: ({ frames }) => frames.reduce((total, frame) => total + frame.score, 0),
+      }),
       updateCurrentFrameFirstRoll: assign({
         frames: ({ frames, currentFrame }, { pinCount }) => {
           const nextFrames = copyFrames(frames);
@@ -86,11 +89,10 @@ const gameMachine = Machine(
           const nextFrames = copyFrames(frames);
           switch (currentFrame - currentScoringFrame) {
             case 2:
-              
+              // TODO - handle double strike scoring
               break;
-          
             case 1:
-
+              // TODO - handle spare or single strike scoring
               break;
             default:
               nextFrames[currentScoringFrame - 1].score = roll1 + roll2;
@@ -107,6 +109,8 @@ const gameMachine = Machine(
       }),
     },
     guards: {
+      isValidSecondRoll: ({ frames, currentFrame }, { pinCount }) => (
+        frames[currentFrame - 1].roll1 + pinCount <= 10),
       isStrike: (context, { pinCount }) => pinCount === 10,
       isSpare: ({ frames, currentFrame }, { pinCount }) => (
         frames[currentFrame - 1].roll1 + pinCount === 10),
