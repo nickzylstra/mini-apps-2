@@ -7,7 +7,7 @@ const gameMachine = Machine(
     initial: 'frameFirstRollHistNo',
     context: {
       score: 0,
-      frames: (new Array(10)).fill([null, null, null]),
+      frames: (new Array(10)).fill({ score: null, roll1: null, roll2: null }),
       currentFrame: 1,
       currentScoredFrame: 0,
     },
@@ -59,9 +59,9 @@ const gameMachine = Machine(
       }),
       updateFramesFirstRoll: assign({
         frames: ({ frames, currentFrame }, { pinCount }) => {
-          const nextFrames = [...frames].map((sF) => [...sF]);
+          const nextFrames = [...frames].map((sF) => ({ ...sF }));
 
-          nextFrames[currentFrame - 1][1] = pinCount;
+          nextFrames[currentFrame - 1].roll1 = pinCount;
           return nextFrames;
         },
       }),
@@ -77,7 +77,7 @@ const gameMachine = Machine(
     guards: {
       isStrike: (context, { pinCount }) => pinCount === 10,
       isSpare: ({ frames, currentFrame }, { pinCount }) => (
-        frames[currentFrame - 1][1] + pinCount === 10),
+        frames[currentFrame - 1].roll1 + pinCount === 10),
     },
   },
 );

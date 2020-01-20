@@ -9,9 +9,7 @@ const App = () => {
   const [machine, send] = useMachine(gameMachine);
   const { frames, currentFrame, score } = machine.context;
 
-  const addRoll = (pinCount) => {
-    send({ type: 'ROLL', pinCount });
-  };
+  const addRoll = (pinCount) => send({ type: 'ROLL', pinCount });
 
   return (
     <div id="app">
