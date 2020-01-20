@@ -20,6 +20,13 @@ const actions = {
       return nextFrames;
     },
   }),
+  add10FrameThirdRoll: assign({
+    frames: ({ frames }, { pinCount }) => {
+      const nextFrames = copyFrames(frames);
+      nextFrames[9].roll3 = pinCount;
+      return nextFrames;
+    },
+  }),
   updateFramesScore: assign({
     frames: ({ frames, currentFrame, currentScoringFrame }) => {
       const { roll1, roll2 } = frames[currentFrame - 1];

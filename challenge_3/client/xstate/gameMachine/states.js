@@ -72,7 +72,7 @@ const states = {
       ROLL: {
         target: 'finished',
         actions: [
-          'addThirdRoll',
+          'add10FrameThirdRoll',
           'updateFramesScore',
           'updateScore',
         ],
