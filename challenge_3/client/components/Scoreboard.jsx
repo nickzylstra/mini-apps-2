@@ -2,21 +2,22 @@ import React from 'react';
 import Frame from './Scoreboard/Frame.jsx';
 
 const Scoreboard = (props) => {
-  const { scoreFrames, scoreTotal } = props;
+  const { frames, score, currentFrame } = props;
 
   return (
     <div className="container">
       <div id="scoreboardTotal" className="h3">
-        {`Game Score: ${scoreTotal}`}
+        {`Game Score: ${score}`}
       </div>
       <ul id="scoreboardFrames" className="list-group list-group-horizontal">
-        {scoreFrames.map((scoreFrame, idx) => {
-          const key = JSON.stringify(scoreFrame) + idx;
+        {frames.map((frame, idx) => {
+          const key = JSON.stringify(frame) + idx;
           return (
             <Frame
               key={key}
-              frame={idx + 1}
-              scoreFrame={scoreFrame}
+              frameNum={idx + 1}
+              frame={frame}
+              currentFrame={currentFrame}
             />
           );
         })}

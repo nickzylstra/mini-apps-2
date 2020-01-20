@@ -1,18 +1,18 @@
 import React from 'react';
 
 const Frame = (props) => {
-  const { scoreFrame, frame } = props;
+  const { frame, frameNum } = props;
 
   return (
     <div className="list-group-item flex-fill">
-      <span id="frameNum" className="h5">{`${frame}  `}</span>
+      <span id="frameNum" className="h5">{`${frameNum}  `}</span>
       <span>
-        {scoreFrame[0]}
+        {frame[0]}
         {'  '}
-        {scoreFrame[1]}
+        {frame[1]}
       </span>
       <div id="frameScore" className="h3">
-        {scoreFrame[2]}
+        {frame[2]}
       </div>
     </div>
   );
