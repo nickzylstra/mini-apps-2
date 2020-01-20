@@ -6,13 +6,13 @@ const Frame = (props) => {
 
   return (
     <div className="list-group-item flex-fill">
-      <span id="frameNum" className="h5">{`${frameNum}  `}</span>
+      <span className="h5 frameNum">{`${frameNum}  `}</span>
       <span>
         {roll1}
         {'  '}
         {roll2}
       </span>
-      <div id="frameScore" className="h3">
+      <div className="h3 frame">
         {score}
       </div>
     </div>
