@@ -23,9 +23,9 @@ const states = {
         },
       ],
     },
-    // meta: {
-    //   test: () => {},
-    // },
+    meta: {
+      test: () => {},
+    },
   },
   frameFirstRollHist1X: {
     on: {
@@ -50,6 +50,9 @@ const states = {
           actions: 'updateCurrentFrameFirstRoll',
         },
       ],
+    },
+    meta: {
+      test: () => {},
     },
   },
   frameFirstRollHist2X: {
@@ -83,6 +86,9 @@ const states = {
           ],
         },
       ],
+    },
+    meta: {
+      test: () => {},
     },
   },
   frameFirstRollHistSP: {
@@ -126,6 +132,9 @@ const states = {
           ],
         },
       ],
+    },
+    meta: {
+      test: () => {},
     },
   },
   frameSecondRollHistNo: {
@@ -171,6 +180,9 @@ const states = {
           target: 'frameSecondRollHistNo',
         },
       ],
+    },
+    meta: {
+      test: () => {},
     },
   },
   frameSecondRollHistX: {
@@ -227,6 +239,9 @@ const states = {
         },
       ],
     },
+    meta: {
+      test: () => {},
+    },
   },
   frame10ThirdRoll: {
     on: {
@@ -238,9 +253,15 @@ const states = {
         ],
       },
     },
+    meta: {
+      test: () => {},
+    },
   },
   finished: {
     type: 'final',
+    meta: {
+      test: () => {},
+    },
   },
 };
 

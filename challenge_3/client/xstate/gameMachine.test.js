@@ -31,6 +31,7 @@ describe('gameMachine', () => {
   });
 
   test('has full coverage', () => {
-    expect(gameModel.testCoverage()).toBe(true);
+    // gameModel.testCoverage() will throw error if test coverage not complete
+    expect(gameModel.testCoverage()).toBe(undefined);
   });
 });
