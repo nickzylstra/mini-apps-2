@@ -4,7 +4,7 @@ const states = {
       ROLL: [
         {
           cond: 'isStrike10Frame',
-          target: 'frameSecondRollHistX',
+          target: 'frameSecondRollHistNo',
           actions: [
             'updateCurrentFrameFirstRoll',
           ],
