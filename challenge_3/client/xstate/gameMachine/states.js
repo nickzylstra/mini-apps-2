@@ -2,13 +2,13 @@ const states = {
   frameFirstRollHistNo: {
     on: {
       ROLL: [
-        // {
-        //   cond: 'isStrike10Frame',
-        //   target: 'frameSecondRollHist1X',
-        //   actions: [
-        //     'updateCurrentFrameFirstRoll',
-        //   ],
-        // },
+        {
+          cond: 'isStrike10Frame',
+          target: 'frameSecondRollHistX',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+          ],
+        },
         {
           cond: 'isStrike',
           target: 'frameFirstRollHist1X',
