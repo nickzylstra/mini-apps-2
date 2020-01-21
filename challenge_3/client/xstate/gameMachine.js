@@ -3,6 +3,7 @@ import states from './gameMachine/states.js';
 import actions from './gameMachine/actions.js';
 import guards from './gameMachine/guards.js';
 
+// visualization: https://xstate.js.org/viz/?gist=352d2f11a5e6eb19a0f70840314a2d24
 
 const gameMachine = Machine(
   {
