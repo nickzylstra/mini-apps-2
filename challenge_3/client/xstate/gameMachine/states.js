@@ -53,7 +53,35 @@ const states = {
     },
   },
   frameFirstRollHist2X: {},
-  frameFirstRollHistSP: {},
+  frameFirstRollHistSP: {
+    on: {
+      ROLL: [
+        // {
+        //   cond: 'isStrike10Frame',
+        //   target: 'frameSecondRollHistX',
+        //   actions: [
+        //     'updateCurrentFrameFirstRoll',
+        //   ],
+        // },
+        // {
+        //   cond: 'isStrike',
+        //   target: 'frameFirstRollHist2X',
+        //   actions: [
+        //     'updateCurrentFrameFirstRoll',
+        //     'incrementCurrentFrame',
+        //   ],
+        // },
+        {
+          target: 'frameSecondRollHistNo',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+          ],
+        },
+      ],
+    },
+  },
   frameSecondRollHistNo: {
     on: {
       ROLL: [
@@ -88,11 +116,14 @@ const states = {
             'updateCurrentFrameSecondRoll',
             'updateFramesScore',
             'incrementCurrentFrame',
-            'incrementScoredFrame',
+            'incrementScoringFrame',
             'updateScore',
           ],
         },
-        // TODO - handle invalid second roll with error message
+        {
+          // TODO - handle invalid second roll with error message
+          target: 'frameSecondRollHistNo',
+        },
       ],
     },
   },

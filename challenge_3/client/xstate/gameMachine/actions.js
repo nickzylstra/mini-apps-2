@@ -34,12 +34,15 @@ const actions = {
       const nextFrames = copyFrames(frames);
       switch (currentFrame - currentScoringFrame) {
         case 2:
-          // TODO - handle double strike scoring
+          // past double strike affected by current frame
+          nextFrames[currentScoringFrame - 1].score = 20 + roll1;
           break;
         case 1:
-          // TODO - handle spare or single strike scoring
+          // past spare or single strike affected by current frame
+          nextFrames[currentScoringFrame - 1].score = 10 + roll1 + roll2;
           break;
         default:
+          // no past spares or strikes affected by current frame
           nextFrames[currentScoringFrame - 1].score = roll1 + roll2 + roll3;
           break;
       }
@@ -49,7 +52,7 @@ const actions = {
   incrementCurrentFrame: assign({
     currentFrame: ({ currentFrame }) => currentFrame + 1,
   }),
-  incrementScoredFrame: assign({
+  incrementScoringFrame: assign({
     currentScoringFrame: ({ currentScoringFrame }) => currentScoringFrame + 1,
   }),
 };
