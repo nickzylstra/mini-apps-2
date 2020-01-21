@@ -96,7 +96,7 @@ const states = {
       ROLL: [
         {
           cond: 'isStrike10Frame',
-          target: 'frameSecondRollHistX',
+          target: 'frameSecondRollHistNo',
           actions: [
             'updateCurrentFrameFirstRoll',
             'updateFramesScore',
@@ -249,6 +249,7 @@ const states = {
         target: 'finished',
         actions: [
           'addThirdRoll10Frame',
+          'updateFramesScore',
           'updateScore',
         ],
       },
