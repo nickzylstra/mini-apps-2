@@ -52,7 +52,39 @@ const states = {
       ],
     },
   },
-  frameFirstRollHist2X: {},
+  frameFirstRollHist2X: {
+    on: {
+      ROLL: [
+        {
+          cond: 'isStrike10Frame',
+          target: 'frameSecondRollHistX',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+          ],
+        },
+        {
+          cond: 'isStrike',
+          target: 'frameFirstRollHist2X',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+            'incrementCurrentFrame',
+          ],
+        },
+        {
+          target: 'frameSecondRollHistX',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+          ],
+        },
+      ],
+    },
+  },
   frameFirstRollHistSP: {
     on: {
       ROLL: [
