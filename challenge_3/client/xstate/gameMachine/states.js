@@ -234,7 +234,6 @@ const states = {
         target: 'finished',
         actions: [
           'addThirdRoll10Frame',
-          'updateFramesScore',
           'updateScore',
         ],
       },

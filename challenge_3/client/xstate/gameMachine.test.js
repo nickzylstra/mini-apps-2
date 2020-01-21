@@ -9,7 +9,7 @@ const gameModel = createModel(gameMachine).withEvents({
       // { pinCount: 3 },
       { pinCount: 5 },
       // { pinCount: 7 },
-      // { pinCount: 10 },
+      { pinCount: 10 },
     ],
   },
 });
