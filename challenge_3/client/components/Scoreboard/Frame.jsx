@@ -11,6 +11,8 @@ const Frame = (props) => {
         {roll1}
         {'  '}
         {roll2}
+        {'  '}
+        {frame.roll3 ? frame.roll3 : null}
       </span>
       <div className="h3 frame">
         {score}
