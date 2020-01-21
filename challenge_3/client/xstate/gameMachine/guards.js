@@ -8,9 +8,9 @@ const guards = {
   isStrike10Frame: ({ currentFrame }, { pinCount }) => (
     currentFrame === 10
       && pinCount === 10),
-  isSpare10Frame: ({ frames, currentFrame }, { pinCount }) => (
+  shouldContinue10Frame: ({ frames, currentFrame }, { pinCount }) => (
     currentFrame === 10
-      && frames[currentFrame - 1].roll1 + pinCount === 10),
+      && frames[currentFrame - 1].roll1 + pinCount >= 10),
 };
 
 export default guards;

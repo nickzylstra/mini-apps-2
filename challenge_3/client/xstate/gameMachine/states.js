@@ -56,13 +56,25 @@ const states = {
   frameFirstRollHistSP: {
     on: {
       ROLL: [
-        // {
-        //   cond: 'isStrike10Frame',
-        //   target: 'frameSecondRollHistX',
-        //   actions: [
-        //     'updateCurrentFrameFirstRoll',
-        //   ],
-        // },
+        {
+          cond: 'isStrike10Frame',
+          target: 'frameSecondRollHistX',
+          actions: [
+            'updateCurrentFrameFirstRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+          ],
+        },
+        {
+          cond: 'is10Frame',
+          target: 'frameSecondRollHistNo',
+          actions: [
+            'updateCurrentFrameSecondRoll',
+            'updateFramesScore',
+            'incrementScoringFrame',
+            'updateScore',
+          ],
+        },
         {
           cond: 'isStrike',
           target: 'frameFirstRollHist1X',
@@ -88,7 +100,7 @@ const states = {
     on: {
       ROLL: [
         {
-          cond: 'isSpare10Frame',
+          cond: 'shouldContinue10Frame',
           target: 'frame10ThirdRoll',
           actions: [
             'updateCurrentFrameSecondRoll',
@@ -133,7 +145,7 @@ const states = {
     on: {
       ROLL: [
         {
-          cond: 'isSpare10Frame',
+          cond: 'shouldContinue10Frame',
           target: 'frame10ThirdRoll',
           actions: [
             'updateCurrentFrameSecondRoll',
@@ -179,7 +191,7 @@ const states = {
         },
         {
           // TODO - handle invalid second roll with error message
-          target: 'frameSecondRollHistNo',
+          target: 'frameSecondRollHistX',
         },
       ],
     },
