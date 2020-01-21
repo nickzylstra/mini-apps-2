@@ -101,7 +101,7 @@ const states = {
           cond: 'is10Frame',
           target: 'frameSecondRollHistNo',
           actions: [
-            'updateCurrentFrameSecondRoll',
+            'updateCurrentFrameFirstRoll',
             'updateFramesScore',
             'incrementScoringFrame',
             'updateScore',
