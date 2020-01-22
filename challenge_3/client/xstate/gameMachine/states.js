@@ -261,8 +261,12 @@ const states = {
   finished: {
     type: 'final',
     meta: {
-      test: ({ score, frames }) => (
+      test: ({
+        score, frames, currentFrame, currentScoringFrame,
+      }) => (
         score === frames.reduce((tot, frame) => tot + frame.score)
+        && currentFrame === 10
+        && currentScoringFrame === 10
       ),
     },
   },
