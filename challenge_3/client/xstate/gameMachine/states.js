@@ -65,6 +65,7 @@ const states = {
             'updateCurrentFrameFirstRoll',
             'updateFramesScore',
             'incrementScoringFrame',
+            'updateScore',
           ],
         },
         {
@@ -75,6 +76,7 @@ const states = {
             'updateFramesScore',
             'incrementScoringFrame',
             'incrementCurrentFrame',
+            'updateScore',
           ],
         },
         {
@@ -83,6 +85,7 @@ const states = {
             'updateCurrentFrameFirstRoll',
             'updateFramesScore',
             'incrementScoringFrame',
+            'updateScore',
           ],
         },
       ],
@@ -101,6 +104,7 @@ const states = {
             'updateCurrentFrameFirstRoll',
             'updateFramesScore',
             'incrementScoringFrame',
+            'updateScore',
           ],
         },
         {
@@ -121,6 +125,7 @@ const states = {
             'updateFramesScore',
             'incrementScoringFrame',
             'incrementCurrentFrame',
+            'updateScore',
           ],
         },
         {
@@ -129,6 +134,7 @@ const states = {
             'updateCurrentFrameFirstRoll',
             'updateFramesScore',
             'incrementScoringFrame',
+            'updateScore',
           ],
         },
       ],
