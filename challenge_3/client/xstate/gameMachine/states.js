@@ -261,7 +261,9 @@ const states = {
   finished: {
     type: 'final',
     meta: {
-      test: () => {},
+      test: ({ score, frames }) => (
+        score === frames.reduce((tot, frame) => tot + frame.score)
+      ),
     },
   },
 };

@@ -21,9 +21,7 @@ describe('gameMachine', () => {
       plan.paths.forEach((path) => {
         test(path.description, async () => {
           // TODO - add setup
-          const result = await path.test(
-            // TODO - add context
-          );
+          const result = await path.test(path.state.context);
           expect(result.state.error).toBe(null);
         });
       });
