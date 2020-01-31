@@ -9,6 +9,7 @@ describe('actions', () => {
   describe('initializeGame', () => {
     const rowCount = 10;
     const colCount = 10;
+    const cellCount = rowCount * colCount;
     const mineCount = 10;
     const cellIdGen = (num) => `cell${num}`;
 
@@ -25,13 +26,22 @@ describe('actions', () => {
     it('should initialize grid', () => {
       expect(grid.length).toEqual(rowCount);
       expect(grid[colCount - 1].length).toEqual(colCount);
-      expect(grid[rowCount - 1][colCount - 1]).toEqual(cellIdGen(rowCount * colCount - 1))
+      expect(grid[rowCount - 1][colCount - 1]).toEqual(cellIdGen(cellCount - 1))
     })
 
-    it('should initialize cells', () => {
+    it('should initialize cells data struture', () => {
+      expect(Object.keys(cells).length).toEqual(cellCount);
+      const sampleCell = cells[cellIdGen(cellCount - 1)];
+      expect(sampleCell.hasOwnProperty('hasMine')).toBe(true);
+      expect(sampleCell.hasOwnProperty('adjMineCount')).toBe(true);
+      expect(sampleCell.hasOwnProperty('isCovered')).toBe(true);
+      expect(sampleCell.hasOwnProperty('flagged')).toBe(true);
     });
 
     it('should place correct number of mines', () => {
+      const foundMineCount = Object.values(cells).reduce((count, { hasMine }) => (
+        hasMine ? count + 1 : count), 0);
+      expect(foundMineCount).toEqual(mineCount);
     });
 
     it('should update cells mineCount', () => {
