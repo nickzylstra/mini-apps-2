@@ -1,15 +1,60 @@
-
+export const INITIALIZED_GAME = 'INITIALIZED_GAME';
+export const STARTED_GAME = 'STARTED_GAME';
 export const UNCOVERED_CELL = 'UNCOVERED_CELL';
-// export const CELL_UNCLICKED = 'CELL_UNCLICKED';
-// export const CELL_FLAGGED = 'CELL_FLAGGED';
-export const GAME_STARTED = 'GAME_STARTED';
+// export const UNCLICKED_CELL = 'UNCLICKED_CELL';
+// export const FLAGGED_CELL = 'FLAGGED_CELL';
+
+
+export const initializeGame = (
+    rowCount = 10, 
+    colCount = 10,
+    mineCount = 10,
+    cellIdGen = (num) => `cell${num}`
+  ) => {
+    const grid = [];
+    const cells = {};
+    
+    // populate grid with cellIds and create cells data structure
+    for (let r = 0; r < rowCount; r += 1) {
+      grid[r] = [];
+      for (let c = 0; c < colCount; c += 1) {
+        const cellId = cellIdGen(c + r * colCount);
+        grid[r][c] = cellId;
+        cells[cellId] = {
+          hasMine: false,
+          adjMineCount: 0,
+          isCovered: true,
+          flagged: false,
+        }
+      }
+    }
+
+    // place mines randomly
+    let placedMineCount = 0;
+    while (placedMineCount < mineCount) {
+      const randCellId = cellIdGen(Math.trunc(Math.random() * rowCount * colCount));
+      const randCell = cells[randCellId];
+      if (!randCell.hasMine) {
+        randCell.hasMine = true;
+        placedMineCount += 1;
+      }
+    }
+
+    // update mineCount
+
+    return {
+      type: INITIALIZED_GAME,
+      grid,
+      cells,
+    };
+}
 
 const uncoverCell = (cellId) => ({
   type: UNCOVERED_CELL,
   cellId,
 });
 
-// if mine and all neighbors uncovered, flag cellId
+// if mine and all neighbors uncovered, flag cellId, update minesLeft
 
 const peekCellNeighbors = (cellId) => (dispatch, getState) => {
   // uncover neighbors that don't have mines
