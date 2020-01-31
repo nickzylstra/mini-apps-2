@@ -5,11 +5,10 @@ const clickCell = (cell) => ({
   cell,
 });
 
-export default {
-  types: {
-    CLICK_CELL,
-  },
-  creators: {
-    clickCell,
-  }
+export const types = {
+  CLICK_CELL,
+}
+
+export const creators = {
+  clickCell,
 }

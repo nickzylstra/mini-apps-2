@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { types } from '../actions/index';
+import { types as actionTypes } from '../actions/index';
 
 const {
   CLICK_CELL,
-} = types;
+} = actionTypes;
 
 // cellsById - { cell0: { hasMine: true, adjMineCount: 3, isCovered: true }, ... }
 // grid - array of row arrays containing cellIds [[cell0, ...], ...]
