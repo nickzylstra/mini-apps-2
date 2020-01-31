@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { types as actionTypes } from '../actions/index';
+import grid from './grid';
 
 const {
   CELL_CLICKED,
@@ -14,7 +15,7 @@ const {
 // minesLeft - int
 
 const rootReducer = combineReducers({
-  // TODO - add reducers
+  grid,
 });
 
 export default rootReducer;
