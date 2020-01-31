@@ -1,12 +1,12 @@
-const CLICK_CELL = 'CLICK_CELL';
+const CELL_CLICKED = 'CELL_CLICKED';
 
 const clickCell = (cell) => ({
-  type: CLICK_CELL,
+  type: CELL_CLICKED,
   cell,
 });
 
 export const types = {
-  CLICK_CELL,
+  CELL_CLICKED,
 }
 
 export const creators = {
