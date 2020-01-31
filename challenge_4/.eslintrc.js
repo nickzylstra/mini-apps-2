@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'plugin:jest/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -22,5 +23,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    "import/extensions": ['error', 'always', {ignorePackages: true} ],
   },
 };
