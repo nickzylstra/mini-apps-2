@@ -1,17 +1,13 @@
 import { combineReducers } from 'redux';
-import { types as actionTypes } from '../actions/index';
 import grid from './grid';
 
-const {
-  CELL_CLICKED,
-} = actionTypes;
-
-// cellsById - { cell0: { hasMine: true, adjMineCount: 3, isCovered: true }, ... }
+// rowCount - int
+// colCount - int
+// cellsById - { cell0: { hasMine: true, adjMineCount: 3, isCovered: true, flagged: false }, ... }
 // grid - array of row arrays containing cellIds [[cell0, ...], ...]
-// turns - [turn0, turn1, ...]
-// turnsById - { turn0: { row: 0, col: 3 }, ... }
+// turns - [cell3, cell0, ...]
 // timeElapsed - int - seconds
-// gameStatus - string - values: start, inProgress, lost, won
+// gameStatus - string - values: start, inProgress, mid-LClick, lost, won
 // minesLeft - int
 
 const rootReducer = combineReducers({
