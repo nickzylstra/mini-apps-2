@@ -4,8 +4,7 @@ import { clickCell } from '../../../redux/actions/index';
 import './Cell.css'
 
 
-const Cell = (props) => {
-  const { cellId } = props;
+const Cell = ({ cellId }) => {
   const dispatch = useDispatch();
   const cell = useSelector(({ cells }) => cells[cellId]);
   const { adjMineCount, isCovered, hasMine, isFlagged } = cell;
