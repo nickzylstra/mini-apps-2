@@ -1,5 +1,5 @@
 import * as actions from './index';
-import initializeGame from './initializeGameCreator';
+import initializeGame from './initializeGame';
 import { getNeighborCellIds } from './utils';
 
 const {
