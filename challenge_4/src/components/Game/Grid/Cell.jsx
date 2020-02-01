@@ -5,10 +5,9 @@ import './Cell.css'
 
 
 const Cell = (props) => {
-  const dispatch = useDispatch();
-  const cells = useSelector(({ cells }) => cells);
   const { cellId } = props;
-  const cell = cells[cellId];
+  const dispatch = useDispatch();
+  const cell = useSelector(({ cells }) => cells[cellId]);
   const { adjMineCount, isCovered, hasMine, isFlagged } = cell;
   return (
     <div
