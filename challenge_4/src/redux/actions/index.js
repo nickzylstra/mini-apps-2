@@ -4,6 +4,29 @@ export const UNCOVERED_CELL = 'UNCOVERED_CELL';
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
 
+const getCellNeighbors = (state, cellId) => {
+  const { grid, cells, rowCount, colCount } = state;
+  const { row, col } = cells[cellId];
+  const dirs = [
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [0, -1],
+    [0, 1],
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+  ];
+
+  return dirs.reduce((neighbors, dir) => {
+    const dirRow = dir[0] + row;
+    const isDirRowInGrid = dirRow < rowCount && dirRow >= 0;
+    const dirCol = dir[1] + col;
+    const isDirColInGrid = dirCol < colCount && dirCol >= 0;
+    if (isDirRowInGrid && isDirColInGrid) { neighbors.push(grid[dirRow][dirCol]); }
+    return neighbors;
+  }, []);
+};
 
 export const initializeGame = (
     rowCount = 10, 
@@ -25,6 +48,8 @@ export const initializeGame = (
           adjMineCount: 0,
           isCovered: true,
           flagged: false,
+          row: r,
+          col: c,
         }
       }
     }
@@ -46,6 +71,9 @@ export const initializeGame = (
       type: INITIALIZED_GAME,
       grid,
       cells,
+      rowCount,
+      colCount,
+      mineCount,
     };
 }
 
