@@ -1,9 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clickCell } from '../../../redux/actions/index';
 import './Cell.css'
 
 
 const Cell = (props) => {
+  const dispatch = useDispatch();
   const cells = useSelector(({ cells }) => cells);
   const { cellId } = props;
   const cell = cells[cellId];
@@ -11,15 +13,11 @@ const Cell = (props) => {
   return (
     <div
       id={cellId}
-      className={`
-        cell
-        ${isCovered ? 'blank' : 'exposed'}
-        ${hasMine ? 'mine' : null}
-        ${isFlagged ? 'flagged' : null}`}
+      onClick={(e) => { dispatch(clickCell(e.target.id)); }}
+      className={`cell ${isCovered ? 'blank' : 'exposed'}
+        ${hasMine ? 'mine' : ''} ${isFlagged ? 'flagged' : ''}`}
     >
-      {/* {isCovered ? null : adjMineCount} */}
-      {adjMineCount}
-      {/* {hasMine ? 'X' : 'O'} */}
+      {isCovered ? '.' : adjMineCount}
     </div>
   )
 };

@@ -24,19 +24,20 @@ const peekCellNeighbors = (cellId) => (dispatch, getState) => {
       // peekCellNeighbors(coveredNeighborCellId)
 };
 
-export const cellClick = (cellId) => (dispatch, getState) => {
+export const clickCell = (cellId) => (dispatch, getState) => {
   // if gameStatus === lost || won
     // return
 
   // if gameStatus === start
     // dispatch(startGame())
 
-  // declare cell from getState
+  // const { cells } = getState();
+  // const cell = cells[cellId];
+
   // if cell.hasMine
     // dispatch(loseGame())
     // return 
-  
-  // dispatch(uncoverCell(cellId))
+  dispatch(uncoverCell(cellId))
 
   // if cell.adjMineCount === 0
     // peekCellNeighbors(cellId)
