@@ -21,7 +21,7 @@ const initializeGame = (
         hasMine: false,
         adjMineCount: 0,
         isCovered: true,
-        flagged: false,
+        isFlagged: false,
         row: r,
         col: c,
       }

@@ -36,7 +36,7 @@ describe('actions', () => {
       expect(sampleCell.hasOwnProperty('hasMine')).toBe(true);
       expect(sampleCell.hasOwnProperty('adjMineCount')).toBe(true);
       expect(sampleCell.hasOwnProperty('isCovered')).toBe(true);
-      expect(sampleCell.hasOwnProperty('flagged')).toBe(true);
+      expect(sampleCell.hasOwnProperty('isFlagged')).toBe(true);
       expect(sampleCell.hasOwnProperty('row')).toBe(true);
       expect(sampleCell.hasOwnProperty('col')).toBe(true);
     });
