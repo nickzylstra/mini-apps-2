@@ -20,9 +20,9 @@ const peekCellNeighbors = (cellId) => (dispatch, getState) => {
     const { adjMineCount, isCovered } = state.cells[cellId];
     if (isCovered) {
       dispatch(uncoverCell(cellId));
-    }
-    if (adjMineCount === 0) {
-      // dispatch(peekCellNeighbors(cellId));
+      if (adjMineCount === 0) {
+        dispatch(peekCellNeighbors(cellId));
+      }
     }
   });
 };
