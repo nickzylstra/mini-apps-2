@@ -1,8 +1,9 @@
 import * as actions from './index';
+import initializeGame from './initializeGameCreator';
+import { getNeighborCellIds } from './utils';
 
 const {
   INITIALIZED_GAME,
-  initializeGame,
 } = actions;
 
 describe('actions', () => {
@@ -36,6 +37,8 @@ describe('actions', () => {
       expect(sampleCell.hasOwnProperty('adjMineCount')).toBe(true);
       expect(sampleCell.hasOwnProperty('isCovered')).toBe(true);
       expect(sampleCell.hasOwnProperty('flagged')).toBe(true);
+      expect(sampleCell.hasOwnProperty('row')).toBe(true);
+      expect(sampleCell.hasOwnProperty('col')).toBe(true);
     });
 
     it('should place correct number of mines', () => {
@@ -45,6 +48,11 @@ describe('actions', () => {
     });
 
     it('should update cells mineCount', () => {
+      const sampleCellId = cellIdGen(cellCount - 1);
+      const sampleCell = cells[sampleCellId];
+      const neighborCellIds = getNeighborCellIds({ grid, cells, rowCount, colCount }, sampleCellId);
+
+      expect()
     });
   });
 });
