@@ -49,7 +49,6 @@ const initializeGame = (
       } 
     });
     cells[cellId].adjMineCount = cellMineCount;
-    // debugger;
   })
 
   return {

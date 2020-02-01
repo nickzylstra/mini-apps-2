@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import grid from './grid';
 import cells from './cells';
+import rowCount from './rowCount';
+import colCount from './colCount';
 
 // rowCount - int
 // colCount - int
@@ -14,6 +16,8 @@ import cells from './cells';
 const rootReducer = combineReducers({
   grid,
   cells,
+  rowCount,
+  colCount,
 });
 
 export default rootReducer;
