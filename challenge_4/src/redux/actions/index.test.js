@@ -52,7 +52,11 @@ describe('actions', () => {
       const sampleCell = cells[sampleCellId];
       const neighborCellIds = getNeighborCellIds({ grid, cells, rowCount, colCount }, sampleCellId);
 
-      expect()
+      let sampleCellMineCount = 0;
+      neighborCellIds.forEach((neighbor) => {
+        if (neighbor.hasMine) sampleCellMineCount += 1;
+      });
+      expect(sampleCellMineCount).toEqual(sampleCell.adjMineCount);
     });
   });
 });
