@@ -2,8 +2,16 @@
   width: 16px;
   height: 16px;
   display: inline-block;
+  border: 1px solid black;
 }
 
 .exposed {
 
+}
+
+.blank {
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  border-left-color: white;
+  border-top-color: white;
 }

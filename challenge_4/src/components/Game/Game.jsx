@@ -15,8 +15,8 @@ const Game = () => {
   const rowCount = useSelector(({ rowCount }) => rowCount);
   const colCount = useSelector(({ colCount }) => colCount);
   const style = {
-    width: `${colCount * 16 + 20}px`,
-    height: `${rowCount * 16 + 20}px`,
+    width: `${colCount * 18 + 20}px`,
+    height: `${rowCount * 18 + 20}px`,
   };
 
   return (

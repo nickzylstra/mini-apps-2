@@ -9,7 +9,7 @@ const Cell = (props) => {
   const cell = cells[cellId];
   const { adjMineCount, isCovered } = cell;
   return (
-    <div id={cellId} className="cell">
+    <div id={cellId} className={`cell ${isCovered ? 'blank' : 'exposed'}`}>
       {adjMineCount}
       {/* {cell.hasMine ? 'X' : 'O'} */}
     </div>
