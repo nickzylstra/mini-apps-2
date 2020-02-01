@@ -1,17 +1,11 @@
 import { INITIALIZED_GAME } from './index';
-import { getNeighborCellIds } from './utils';
+import { getNeighborCellIds } from '../utils';
 
 
-const initializeGame = (
-  rowCount = 10, 
-  colCount = 10,
-  mineCount = 10,
-  cellIdGen = (num) => `cell${num}`
-) => {
+const createGridAndCells = (rowCount, colCount, cellIdGen) => {
   const grid = [];
   const cells = {};
-  
-  // populate grid with cellIds and create cells data structure
+
   for (let r = 0; r < rowCount; r += 1) {
     grid[r] = [];
     for (let c = 0; c < colCount; c += 1) {
@@ -28,7 +22,10 @@ const initializeGame = (
     }
   }
 
-  // place mines randomly
+  return [grid, cells];
+};
+
+const placeMines = (cells, mineCount, rowCount, colCount, cellIdGen ) => {
   let placedMineCount = 0;
   while (placedMineCount < mineCount) {
     const randCellId = cellIdGen(Math.trunc(Math.random() * rowCount * colCount));
@@ -38,8 +35,9 @@ const initializeGame = (
       placedMineCount += 1;
     }
   }
+};
 
-  // update mineCount
+const updateMineCounts = (cells, grid, rowCount, colCount) => {
   Object.keys(cells).forEach((cellId) => {
     const neighborCellIds = getNeighborCellIds({ grid, cells, rowCount, colCount }, cellId);
     let cellMineCount = 0;
@@ -50,15 +48,28 @@ const initializeGame = (
     });
     cells[cellId].adjMineCount = cellMineCount;
   })
+};
 
-  return {
-    type: INITIALIZED_GAME,
-    grid,
-    cells,
-    rowCount,
-    colCount,
-    mineCount,
-  };
+const initializeGame = (
+    rowCount = 10, 
+    colCount = 10,
+    mineCount = 10,
+    cellIdGen = (num) => `cell${num}`
+  ) => {  
+    const [grid, cells] = createGridAndCells(rowCount, colCount, cellIdGen);  
+
+    placeMines(cells, mineCount, rowCount, colCount, cellIdGen);
+
+    updateMineCounts(cells, grid, rowCount, colCount);
+
+    return {
+      type: INITIALIZED_GAME,
+      grid,
+      cells,
+      rowCount,
+      colCount,
+      mineCount,
+    };
 }
 
 export default initializeGame;

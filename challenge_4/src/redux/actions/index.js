@@ -1,4 +1,4 @@
-import { getNeighborCellIds } from './utils';
+import { getNeighborCellIds } from '../utils';
 
 export const INITIALIZED_GAME = 'INITIALIZED_GAME';
 export const STARTED_GAME = 'STARTED_GAME';
