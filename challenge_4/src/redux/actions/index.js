@@ -1,15 +1,10 @@
 import { getNeighborCellIds } from '../utils';
+import { INITIALIZED_GAME, initializeGame } from './initializeGame';
+import { UNCOVERED_CELL, uncoverCell } from './uncoverCell';
 
-export const INITIALIZED_GAME = 'INITIALIZED_GAME';
 export const STARTED_GAME = 'STARTED_GAME';
-export const UNCOVERED_CELL = 'UNCOVERED_CELL';
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
-
-const uncoverCell = (cellId) => ({
-  type: UNCOVERED_CELL,
-  cellId,
-});
 
 // if mine and all neighbors uncovered, flag cellId, update minesLeft
 
@@ -48,3 +43,9 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   }
 };
 
+export {
+  INITIALIZED_GAME,
+  initializeGame,
+  UNCOVERED_CELL,
+  uncoverCell,
+}

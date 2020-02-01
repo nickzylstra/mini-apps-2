@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from './Grid/Grid.jsx';
-import initializeGame from '../../redux/actions/initializeGame';
+import { initializeGame } from '../../redux/actions';
 import './Game.css'
 
 

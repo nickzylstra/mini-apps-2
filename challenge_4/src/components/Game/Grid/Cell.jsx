@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clickCell } from '../../../redux/actions/index';
+import { clickCell } from '../../../redux/actions';
 import './Cell.css'
 
 

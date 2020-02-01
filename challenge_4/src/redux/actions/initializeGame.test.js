@@ -1,10 +1,5 @@
-import * as actions from './index';
-import initializeGame from './initializeGame';
+import { INITIALIZED_GAME, initializeGame } from './initializeGame';
 import { getNeighborCellIds } from '../utils';
-
-const {
-  INITIALIZED_GAME,
-} = actions;
 
 describe('initializeGame', () => {
   const rowCount = 10;

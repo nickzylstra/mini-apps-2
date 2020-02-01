@@ -1,6 +1,6 @@
-import { INITIALIZED_GAME } from './index';
 import { getNeighborCellIds } from '../utils';
 
+export const INITIALIZED_GAME = 'INITIALIZED_GAME';
 
 const createGridAndCells = (rowCount, colCount, cellIdGen) => {
   const grid = [];
@@ -50,7 +50,7 @@ const updateMineCounts = (cells, grid, rowCount, colCount) => {
   })
 };
 
-const initializeGame = (
+export const initializeGame = (
     rowCount = 10, 
     colCount = 10,
     mineCount = 10,
@@ -70,6 +70,4 @@ const initializeGame = (
       colCount,
       mineCount,
     };
-}
-
-export default initializeGame;
+};
