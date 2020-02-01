@@ -44,9 +44,12 @@ const initializeGame = (
     const neighborCellIds = getNeighborCellIds({ grid, cells, rowCount, colCount }, cellId);
     let cellMineCount = 0;
     neighborCellIds.forEach((neighbor) => {
-      if (neighbor.hasMine) cellMineCount += 1;
+      if (cells[neighbor].hasMine) {
+        cellMineCount += 1;
+      } 
     });
     cells[cellId].adjMineCount = cellMineCount;
+    // debugger;
   })
 
   return {

@@ -7,8 +7,9 @@ const Cell = (props) => {
   const { cellId } = props;
   const cell = cells[cellId];
   return (
-    <span>
+    <span id={cellId}>
       {cell.adjMineCount}
+      {/* {cell.hasMine ? 'X' : 'O'} */}
     </span>
   )
 };

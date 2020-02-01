@@ -54,7 +54,7 @@ describe('actions', () => {
 
       let sampleCellMineCount = 0;
       neighborCellIds.forEach((neighbor) => {
-        if (neighbor.hasMine) sampleCellMineCount += 1;
+        if (cells[neighbor].hasMine) sampleCellMineCount += 1;
       });
       expect(sampleCellMineCount).toEqual(sampleCell.adjMineCount);
     });
