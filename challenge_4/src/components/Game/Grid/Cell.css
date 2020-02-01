@@ -15,3 +15,7 @@
   border-left-color: white;
   border-top-color: white;
 }
+
+.mine {
+  background-color: red;
+}

@@ -7,11 +7,15 @@ const Cell = (props) => {
   const cells = useSelector(({ cells }) => cells);
   const { cellId } = props;
   const cell = cells[cellId];
-  const { adjMineCount, isCovered } = cell;
+  const { adjMineCount, isCovered, hasMine } = cell;
   return (
-    <div id={cellId} className={`cell ${isCovered ? 'blank' : 'exposed'}`}>
+    <div
+      id={cellId}
+      className={`cell ${isCovered ? 'blank' : 'exposed'} ${hasMine ? 'mine' : null}`}
+    >
+      {/* {isCovered ? null : adjMineCount} */}
       {adjMineCount}
-      {/* {cell.hasMine ? 'X' : 'O'} */}
+      {/* {hasMine ? 'X' : 'O'} */}
     </div>
   )
 };
