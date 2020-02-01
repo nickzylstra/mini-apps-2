@@ -1,3 +1,5 @@
+import { getNeighborCellIds } from './utils';
+
 export const INITIALIZED_GAME = 'INITIALIZED_GAME';
 export const STARTED_GAME = 'STARTED_GAME';
 export const UNCOVERED_CELL = 'UNCOVERED_CELL';
@@ -12,16 +14,17 @@ const uncoverCell = (cellId) => ({
 // if mine and all neighbors uncovered, flag cellId, update minesLeft
 
 const peekCellNeighbors = (cellId) => (dispatch, getState) => {
-  // uncover neighbors that don't have mines
-  // peek neighbors that have mineCount === 0
-  
-  // declare coveredNeighborCellIds from getState
-  // only get inbounds and covered neighbors
-  // for each coveredNeighborCellId
-    // if doesn't have mine
-      // dispatch(uncoverCell(coveredNeighborCellId))
-    // if neighbor mine count === 0
-      // peekCellNeighbors(coveredNeighborCellId)
+  const state = getState();
+  const neighborCellIds = getNeighborCellIds(state, cellId);
+  neighborCellIds.forEach((cellId) => {
+    const { adjMineCount, isCovered } = state.cells[cellId];
+    if (isCovered) {
+      dispatch(uncoverCell(cellId));
+    }
+    if (adjMineCount === 0) {
+      // dispatch(peekCellNeighbors(cellId));
+    }
+  });
 };
 
 export const clickCell = (cellId) => (dispatch, getState) => {
@@ -31,15 +34,17 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   // if gameStatus === start
     // dispatch(startGame())
 
-  // const { cells } = getState();
-  // const cell = cells[cellId];
+  const { cells } = getState();
+  const cell = cells[cellId];
 
   // if cell.hasMine
     // dispatch(loseGame())
-    // return 
+    // return
+  
   dispatch(uncoverCell(cellId))
 
-  // if cell.adjMineCount === 0
-    // peekCellNeighbors(cellId)
+  if (cell.adjMineCount === 0) {
+    dispatch(peekCellNeighbors(cellId));
+  }
 };
 

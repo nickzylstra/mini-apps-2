@@ -17,7 +17,7 @@ const Cell = (props) => {
       className={`cell ${isCovered ? 'blank' : 'exposed'}
         ${hasMine ? 'mine' : ''} ${isFlagged ? 'flagged' : ''}`}
     >
-      {isCovered ? '.' : adjMineCount}
+      {isCovered ? '.' : adjMineCount || '.'}
     </div>
   )
 };
