@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from './Game/Grid';
+import Grid from './Grid/Grid.jsx';
 
 const Game = () => {
 
