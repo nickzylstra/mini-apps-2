@@ -3,10 +3,11 @@ import grid from './grid';
 import cells from './cells';
 import rowCount from './rowCount';
 import colCount from './colCount';
+import gameStatus from './gameStatus';
+import turns from './turns';
 
-// turns - [cell3, cell0, ...]
 // timeElapsed - int - seconds
-// gameStatus - string - values: start, inProgress, mid-LClick, lost, won
+// cellsLeftToUncover - int
 // minesLeft - int
 
 const rootReducer = combineReducers({
@@ -14,6 +15,8 @@ const rootReducer = combineReducers({
   cells,
   rowCount,
   colCount,
+  gameStatus,
+  turns,
 });
 
 export default rootReducer;
