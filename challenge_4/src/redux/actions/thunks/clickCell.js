@@ -17,10 +17,10 @@ const peekCellNeighbors = (cellId) => (dispatch, getState) => {
 };
 
 export const clickCell = (cellId) => (dispatch, getState) => {
-  // if gameStatus === lost || won
-    // return
-
   const { gameStatus, cells } = getState();
+
+  if (gameStatus === statuses.WON || gameStatus === statuses.LOST) return;
+
   if (gameStatus === statuses.READY) { dispatch(startGame()); }
 
   const cell = cells[cellId];
@@ -30,6 +30,9 @@ export const clickCell = (cellId) => (dispatch, getState) => {
     // return
   
   dispatch(uncoverCell(cellId))
+
+  // if uncoveredCellsRemaining === 0
+    // dispatch(winGame())
 
   if (cell.adjMineCount === 0) { dispatch(peekCellNeighbors(cellId)); }
 };
