@@ -1,9 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import renderWithRedux from '../../testUtils/renderWithRedux';
 import App from './App.jsx';
 
-test('adds test', () => {
-  // const { getByText } = render(<App />);
-  // const linkElement = getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
-});
+
+describe('App', () => {
+  test('renders Game', () => {
+    const { getByText } = renderWithRedux(<App />);
+    const appDiv = getByText(/Game/);
+    expect(appDiv).toBeInTheDocument();
+  });
+})

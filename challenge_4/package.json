@@ -21,7 +21,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/serviceWorker.js"
     ],
     "coverageThreshold": {
       "global": {
