@@ -5,6 +5,8 @@ import { statuses } from '../actions';
 const {
   INITIALIZED_GAME,
   STARTED_GAME,
+  LOST_GAME,
+  WON_GAME,
 } = actions;
 
 describe('gameStatus reducer', () => {
@@ -29,5 +31,23 @@ describe('gameStatus reducer', () => {
     };
     const nextState = gameStatus(state, action);
     expect(nextState).toEqual(statuses.INPROGRESS);
+  });
+
+  it('should set win state', () => {
+    const state = statuses.INPROGRESS;
+    const action = {
+      type: WON_GAME,
+    };
+    const nextState = gameStatus(state, action);
+    expect(nextState).toEqual(statuses.WON);
+  });
+
+  it('should set loss state', () => {
+    const state = statuses.INPROGRESS;
+    const action = {
+      type: LOST_GAME,
+    };
+    const nextState = gameStatus(state, action);
+    expect(nextState).toEqual(statuses.LOST);
   });
 });
