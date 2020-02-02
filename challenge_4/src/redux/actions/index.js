@@ -22,7 +22,7 @@ const peekCellNeighbors = (cellId) => (dispatch, getState) => {
   });
 };
 
-export const clickCell = (cellId) => (dispatch, getState) => {
+const clickCell = (cellId) => (dispatch, getState) => {
   // if gameStatus === lost || won
     // return
 
@@ -48,4 +48,5 @@ export {
   initializeGame,
   UNCOVERED_CELL,
   uncoverCell,
+  clickCell,
 }
