@@ -1,12 +1,6 @@
 import * as actions from '../actions/index';
+import { statuses } from '../actions/index';
 
-export const statuses = {
-  INIT: 'INIT',
-  READY: 'READY',
-  INPROGRESS: 'INPROGRESS',
-  LOST: 'LOST',
-  WON: 'WON',
-};
 
 const gameStatus = (state = statuses.INIT, action) => {
   switch (action.type) {   

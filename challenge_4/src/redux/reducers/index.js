@@ -3,7 +3,7 @@ import grid from './grid';
 import cells from './cells';
 import rowCount from './rowCount';
 import colCount from './colCount';
-import gameStatus, { statuses } from './gameStatus';
+import gameStatus from './gameStatus';
 import turns from './turns';
 import uncoveredCellRemaining from './uncoveredCellsRemaining';
 
@@ -19,7 +19,5 @@ const rootReducer = combineReducers({
   turns,
   uncoveredCellRemaining,
 });
-
-export { statuses };
 
 export default rootReducer;

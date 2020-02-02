@@ -1,6 +1,5 @@
 import { getNeighborCellIds } from '../../utils';
-import { uncoverCell, startGame } from '../index';
-import { statuses } from '../../reducers';
+import { uncoverCell, startGame, statuses } from '../index';
 
 
 const peekCellNeighbors = (cellId) => (dispatch, getState) => {

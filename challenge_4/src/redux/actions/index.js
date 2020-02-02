@@ -8,6 +8,14 @@ import { clickCell } from './thunks/clickCell';
 
 // if mine and all neighbors uncovered, flag cellId, update minesLeft
 
+export const statuses = {
+  INIT: 'INIT',
+  READY: 'READY',
+  INPROGRESS: 'INPROGRESS',
+  LOST: 'LOST',
+  WON: 'WON',
+};
+
 export {
   INITIALIZED_GAME,
   initializeGame,
