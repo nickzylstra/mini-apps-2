@@ -1,5 +1,6 @@
 import { getNeighborCellIds } from '../../utils';
-import { uncoverCell } from '../index';
+import { uncoverCell, startGame } from '../index';
+import { statuses } from '../../reducers';
 
 
 const peekCellNeighbors = (cellId) => (dispatch, getState) => {
@@ -20,8 +21,8 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   // if gameStatus === lost || won
     // return
 
-  // if gameStatus === start
-    // dispatch(startGame())
+  const { gameStatus } = getState();
+  if (gameStatus === statuses.READY) { dispatch(startGame())}
 
   const { cells } = getState();
   const cell = cells[cellId];
@@ -32,7 +33,6 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   
   dispatch(uncoverCell(cellId))
 
-  if (cell.adjMineCount === 0) {
-    dispatch(peekCellNeighbors(cellId));
+  if (cell.adjMineCount === 0) { dispatch(peekCellNeighbors(cellId));
   }
 };

@@ -10,6 +10,8 @@ export const statuses = {
 
 const gameStatus = (state = statuses.INIT, action) => {
   switch (action.type) {   
+    case actions.STARTED_GAME:
+      return statuses.INPROGRESS;
     case actions.INITIALIZED_GAME:
       return statuses.READY;
     default:

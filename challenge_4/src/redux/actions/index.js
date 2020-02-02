@@ -1,8 +1,8 @@
 import { INITIALIZED_GAME, initializeGame } from './initializeGame';
 import { UNCOVERED_CELL, uncoverCell } from './uncoverCell';
+import { STARTED_GAME, startGame } from './startGame';
 import { clickCell } from './thunks/clickCell';
 
-// export const STARTED_GAME = 'STARTED_GAME';
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
 
@@ -11,6 +11,8 @@ import { clickCell } from './thunks/clickCell';
 export {
   INITIALIZED_GAME,
   initializeGame,
+  STARTED_GAME,
+  startGame,
   UNCOVERED_CELL,
   uncoverCell,
   clickCell,
