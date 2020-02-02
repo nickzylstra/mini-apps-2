@@ -1,6 +1,8 @@
 import { INITIALIZED_GAME, initializeGame } from './initializeGame';
 import { UNCOVERED_CELL, uncoverCell } from './uncoverCell';
 import { STARTED_GAME, startGame } from './startGame';
+import { WON_GAME, winGame } from './winGame';
+import { LOST_GAME, loseGame } from './loseGame';
 import { clickCell } from './thunks/clickCell';
 
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
@@ -21,6 +23,10 @@ export {
   initializeGame,
   STARTED_GAME,
   startGame,
+  WON_GAME,
+  winGame,
+  LOST_GAME,
+  loseGame,
   UNCOVERED_CELL,
   uncoverCell,
   clickCell,

@@ -1,5 +1,5 @@
 import { getNeighborCellIds } from '../../utils';
-import { uncoverCell, startGame, statuses } from '../index';
+import { uncoverCell, startGame, winGame, loseGame, statuses } from '../index';
 
 
 const getUncoveredNeighborIds = (cellId, state, uncoveredNeighborIds = []) => {
@@ -20,20 +20,25 @@ const getUncoveredNeighborIds = (cellId, state, uncoveredNeighborIds = []) => {
 
 export const clickCell = (cellId) => (dispatch, getState) => {
   const state = getState()
-  const { gameStatus, cells } = state;
+  const { gameStatus, cells, uncoveredCellsRemaining } = state;
 
   if (gameStatus === statuses.WON || gameStatus === statuses.LOST) return;
   if (gameStatus === statuses.READY) { dispatch(startGame()); }
 
   const cell = cells[cellId];
-  // if cell.hasMine
-    // dispatch(loseGame())
-    // return
+  if (cell.hasMine) {
+    dispatch(loseGame());
+    return;
+  }
   
-  if (cell.isCovered) { dispatch(uncoverCell(cellId)); }
+  if (cell.isCovered) {
+    dispatch(uncoverCell(cellId));
+    if (uncoveredCellsRemaining === 1) {
+      dispatch(winGame());
+      return;
+    }
+  }
 
-  // if uncoveredCellsRemaining === 0
-    // dispatch(winGame())
 
   if (cell.adjMineCount === 0) {
     const stateCopy = {...state};
