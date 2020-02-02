@@ -4,7 +4,7 @@ import { UNCOVERED_CELL } from '../index';
 
 
 describe('clickCell', () => {
-  const cellIds = ['cell0', 'cell1'];
+  const cellIds = ['cell0', 'cell1', 'cell2'];
 
   it('uncovers mine free and covered clicked cell', () => {
     const grid = [[cellIds[0]]];
@@ -33,7 +33,7 @@ describe('clickCell', () => {
     expect(actions).toEqual(expectedPayload);
   });
 
-  it('uncovers neighbors of mine free clicked cell', () => {
+  it('uncovers neighbors of clicked cell with no adjMines', () => {
     const grid = [[cellIds[0], cellIds[1]]];
     const rowCount = 1;
     const colCount = 2;
@@ -41,7 +41,7 @@ describe('clickCell', () => {
       [cellIds[0]]: {
         hasMine: false,
         adjMineCount: 0,
-        isCovered: false,
+        isCovered: true,
         isFlagged: false,
         row: 0,
         col: 0,
@@ -71,7 +71,7 @@ describe('clickCell', () => {
     expect(actions).toEqual(expectedPayload);
   });
 
-  it('does not uncover neighbors of mine clicked cell', () => {
+  it('does not uncover neighbors of clicked cell with adjMines', () => {
     const grid = [[cellIds[0], cellIds[1]]];
     const rowCount = 1;
     const colCount = 2;
@@ -79,7 +79,7 @@ describe('clickCell', () => {
       [cellIds[0]]: {
         hasMine: false,
         adjMineCount: 1,
-        isCovered: false,
+        isCovered: true,
         isFlagged: false,
         row: 0,
         col: 0,
@@ -111,12 +111,12 @@ describe('clickCell', () => {
   it('uncovers neighbors of mine free clicked cell, stopping at neighbors with non-zero adjacent mine count', () => {
     const grid = [[cellIds[0], cellIds[1]]];
     const rowCount = 1;
-    const colCount = 2;
+    const colCount = 3;
     const cells = {
       [cellIds[0]]: {
         hasMine: false,
         adjMineCount: 0,
-        isCovered: false,
+        isCovered: true,
         isFlagged: false,
         row: 0,
         col: 0,
@@ -124,6 +124,14 @@ describe('clickCell', () => {
       [cellIds[1]]: {
         hasMine: false,
         adjMineCount: 1,
+        isCovered: true,
+        isFlagged: false,
+        row: 0,
+        col: 1,
+      },
+      [cellIds[2]]: {
+        hasMine: false,
+        adjMineCount: 0,
         isCovered: true,
         isFlagged: false,
         row: 0,

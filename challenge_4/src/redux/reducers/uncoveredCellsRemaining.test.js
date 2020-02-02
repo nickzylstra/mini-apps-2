@@ -33,6 +33,6 @@ describe('uncoveredCellsRemaining reducer', () => {
       type: UNCOVERED_CELL,
     };
     const nextState = uncoveredCellsRemaining(state, action);
-    expect(nextState).toEqual(2);
+    expect(nextState).toEqual(0);
   });
 });
