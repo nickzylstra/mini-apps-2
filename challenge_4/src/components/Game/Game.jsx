@@ -21,7 +21,7 @@ const Game = () => {
 
   return (
     <div className="game" style={style}>
-      Game
+      Minesweeper
       <Grid
         rowCount={rowCount}
         colCount={colCount}

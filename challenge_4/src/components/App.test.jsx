@@ -4,9 +4,9 @@ import App from './App.jsx';
 
 
 describe('App', () => {
-  test('renders Game', () => {
+  test('renders game title', () => {
     const { getByText } = renderWithRedux(<App />);
-    const appDiv = getByText(/Game/);
-    expect(appDiv).toBeInTheDocument();
+    const title = getByText(/Minesweeper/);
+    expect(title).toBeInTheDocument();
   });
 })
