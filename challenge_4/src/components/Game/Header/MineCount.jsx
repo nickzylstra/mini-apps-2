@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './Timer.css'
+import './MineCount.css'
 
 
-const Timer = () => {
+const MineCount = () => {
 
   return (
-    <div className="timer">
+    <div className="mineCount">
       000
     </div>
   )
 };
 
-export default Timer;
+export default MineCount;
