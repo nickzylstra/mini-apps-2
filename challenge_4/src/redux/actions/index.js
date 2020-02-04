@@ -1,13 +1,13 @@
-import { INITIALIZED_GAME, initializeGame } from './initializeGame';
 import { UNCOVERED_CELL, uncoverCell } from './uncoverCell';
 import { UPDATED_TIMER, updateTimer } from './updateTimer';
-import { clickCell } from './thunks/clickCell';
-import { manageTimer, manageTimerCommands } from './thunks/manageTimer';
+import { UPDATED_GAME_STATUS, updateGameStatus } from './updateGameStatus';
+import { INITIALIZED_GAME, initializeGame } from './initializeGame';
 import { resetGame } from './thunks/resetGame';
 import { startGame } from './thunks/startGame';
 import { winGame } from './thunks/winGame';
 import { loseGame } from './thunks/loseGame';
-import { UPDATED_GAME_STATUS, updateGameStatus } from './updateGameStatus';
+import { clickCell } from './thunks/clickCell';
+import { manageTimer, manageTimerCommands } from './thunks/manageTimer';
 
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
@@ -23,19 +23,19 @@ export const statuses = {
 };
 
 export {
-  INITIALIZED_GAME,
-  initializeGame,
   UNCOVERED_CELL,
   uncoverCell,
   UPDATED_TIMER,
   updateTimer,
   UPDATED_GAME_STATUS,
   updateGameStatus,
+  INITIALIZED_GAME,
+  initializeGame,
+  resetGame,
   startGame,
   loseGame,
   winGame,
   clickCell,
   manageTimer,
   manageTimerCommands,
-  resetGame,
 }
