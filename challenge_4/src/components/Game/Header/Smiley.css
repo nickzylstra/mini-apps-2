@@ -1,9 +1,26 @@
 .smiley {
   cursor: pointer;
   flex-basis: 20px;
-  height: 20px;
+  background: url('./smileys.png') no-repeat;
+  background-size: 200%;
 }
 
-.inProgress {
-  background-image: url('./smileys.png');
+.READY {
+  height: 20px;
+  background-position: -5% -5%;
+}
+
+.INPROGRESS {
+  height: 20px;
+  background-position: -5% -5%;
+}
+
+.LOST {
+  height: 20px;
+  background-position: 105% 105%;
+}
+
+.WON {
+  height: 20px;
+  background-position: -5% 105%;
 }

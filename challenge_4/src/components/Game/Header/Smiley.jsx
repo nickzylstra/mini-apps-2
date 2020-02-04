@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeGame } from '../../../redux/actions';
+import { initializeGame, statuses } from '../../../redux/actions';
 import './Smiley.css'
 
 
@@ -11,9 +11,8 @@ const Smiley = () => {
   return (
     <div
       onClick={() => dispatch(initializeGame())}
-      className="smiley inProgress"
+      className={`smiley ${gameStatus}`}
     >
-      {gameStatus === 'LOST' ? ':(' : ':)'}
     </div>
   )
 };
