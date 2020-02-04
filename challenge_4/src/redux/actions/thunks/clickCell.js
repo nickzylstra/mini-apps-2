@@ -5,8 +5,6 @@ import {
   winGame,
   loseGame,
   statuses,
-  manageTimer,
-  manageTimerCommands,
 } from '../index';
 
 
@@ -45,7 +43,6 @@ export const clickCell = (cellId) => (dispatch, getState) => {
     dispatch(uncoverCell(cellId));
     if (uncoveredCellsRemaining === 1) {
       dispatch(winGame());
-      dispatch(manageTimer(manageTimerCommands.STOP));
       return;
     }
   }
