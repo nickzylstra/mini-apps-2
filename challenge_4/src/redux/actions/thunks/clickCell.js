@@ -1,5 +1,13 @@
 import { getNeighborCellIds } from '../../utils';
-import { uncoverCell, startGame, winGame, loseGame, statuses } from '../index';
+import { 
+  uncoverCell,
+  startGame,
+  winGame,
+  loseGame,
+  statuses,
+  manageTimer,
+  manageTimerCommands,
+} from '../index';
 
 
 const getUncoveredNeighborIds = (cellId, state, uncoveredNeighborIds = []) => {
@@ -23,11 +31,15 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   const { gameStatus, cells, uncoveredCellsRemaining } = state;
 
   if (gameStatus === statuses.WON || gameStatus === statuses.LOST) return;
-  if (gameStatus === statuses.READY) { dispatch(startGame()); }
+  if (gameStatus === statuses.READY) { 
+    dispatch(startGame());
+    dispatch(manageTimer(manageTimerCommands.START));
+  }
 
   const cell = cells[cellId];
   if (cell.hasMine) {
     dispatch(loseGame());
+    dispatch(manageTimer(manageTimerCommands.STOP));
     return;
   }
   
@@ -35,6 +47,7 @@ export const clickCell = (cellId) => (dispatch, getState) => {
     dispatch(uncoverCell(cellId));
     if (uncoveredCellsRemaining === 1) {
       dispatch(winGame());
+      dispatch(manageTimer(manageTimerCommands.STOP));
       return;
     }
   }

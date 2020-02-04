@@ -4,10 +4,11 @@ import './Timer.css'
 
 
 const Timer = () => {
+  const timeElapsed = useSelector(({ timer }) => timer.elapsed);
 
   return (
     <div className="timer">
-      000
+      {timeElapsed}
     </div>
   )
 };

@@ -3,7 +3,9 @@ import { UNCOVERED_CELL, uncoverCell } from './uncoverCell';
 import { STARTED_GAME, startGame } from './startGame';
 import { WON_GAME, winGame } from './winGame';
 import { LOST_GAME, loseGame } from './loseGame';
+import { UPDATED_TIMER, updateTimer } from './updateTimer';
 import { clickCell } from './thunks/clickCell';
+import { manageTimer, manageTimerCommands } from './thunks/manageTimer';
 
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
@@ -29,5 +31,9 @@ export {
   loseGame,
   UNCOVERED_CELL,
   uncoverCell,
+  UPDATED_TIMER,
+  updateTimer,
   clickCell,
+  manageTimer,
+  manageTimerCommands,
 }

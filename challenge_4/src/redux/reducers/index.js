@@ -6,8 +6,8 @@ import colCount from './colCount';
 import gameStatus from './gameStatus';
 import turns from './turns';
 import uncoveredCellsRemaining from './uncoveredCellsRemaining';
+import timer from './timer';
 
-// timeElapsed - int - seconds
 // minesLeft - int
 
 const rootReducer = combineReducers({
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
   gameStatus,
   turns,
   uncoveredCellsRemaining,
+  timer,
 });
 
 export default rootReducer;
