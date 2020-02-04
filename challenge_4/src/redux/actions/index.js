@@ -6,6 +6,7 @@ import { LOST_GAME, loseGame } from './loseGame';
 import { UPDATED_TIMER, updateTimer } from './updateTimer';
 import { clickCell } from './thunks/clickCell';
 import { manageTimer, manageTimerCommands } from './thunks/manageTimer';
+import { resetGame } from './thunks/resetGame';
 
 // export const UNCLICKED_CELL = 'UNCLICKED_CELL';
 // export const FLAGGED_CELL = 'FLAGGED_CELL';
@@ -36,4 +37,5 @@ export {
   clickCell,
   manageTimer,
   manageTimerCommands,
+  resetGame,
 }

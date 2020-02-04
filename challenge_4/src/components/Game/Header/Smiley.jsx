@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeGame } from '../../../redux/actions';
+import { resetGame } from '../../../redux/actions';
 import './Smiley.css'
 
 
@@ -12,7 +12,7 @@ const Smiley = () => {
     <div className="smileyContainer">
       <div>
         <div
-          onClick={() => dispatch(initializeGame())}
+          onClick={() => dispatch(resetGame())}
           className={`smiley ${gameStatus}`}
         />
       </div>
