@@ -8,15 +8,15 @@ import {
 } from '../index';
 
 
-const getUncoveredNeighborIds = (cellId, state, uncoveredNeighborIds = []) => {
-  const neighborCellIds = getNeighborCellIds(state, cellId);
+const getUncoveredNeighborIds = (cellId, stateCopy, uncoveredNeighborIds = []) => {
+  const neighborCellIds = getNeighborCellIds(stateCopy, cellId);
   neighborCellIds.forEach((neighborCellId) => {
-    const { adjMineCount, isCovered } = state.cells[neighborCellId];
+    const { adjMineCount, isCovered } = stateCopy.cells[neighborCellId];
     if (isCovered) {
       uncoveredNeighborIds.push(neighborCellId);
-      state.cells[neighborCellId].isCovered = false;
+      stateCopy.cells[neighborCellId].isCovered = false;
       if (adjMineCount === 0) {
-        getUncoveredNeighborIds(neighborCellId, state, uncoveredNeighborIds);
+        getUncoveredNeighborIds(neighborCellId, stateCopy, uncoveredNeighborIds);
       }
     }
   });
