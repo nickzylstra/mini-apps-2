@@ -1,8 +1,8 @@
 import { 
+  updateGameStatus,
+  statuses,
   manageTimer, 
   manageTimerCommands,
-  updateGameStatus,
-  statuses
 } from '../index';
 
 export const startGame = () => (dispatch) => {
