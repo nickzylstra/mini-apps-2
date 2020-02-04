@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from './Grid/Grid.jsx';
-import Smiley from './Smiley.jsx';
+import Header from './Header/Header.jsx';
 import { initializeGame } from '../../redux/actions';
 import './Game.css'
 
@@ -21,7 +21,7 @@ const Game = () => {
 
   return (
     <div title="game" className="game" style={style}>
-      <Smiley />
+      <Header />
       <Grid />
     </div>
   )

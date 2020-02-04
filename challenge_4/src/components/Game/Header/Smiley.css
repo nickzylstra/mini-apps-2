@@ -1,0 +1,9 @@
+.smiley {
+  cursor: pointer;
+  flex-basis: 20px;
+  height: 20px;
+}
+
+.inProgress {
+  background-image: url('./smileys.png');
+}
