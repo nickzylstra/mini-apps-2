@@ -33,7 +33,6 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   if (gameStatus === statuses.WON || gameStatus === statuses.LOST) return;
   if (gameStatus === statuses.READY) { 
     dispatch(startGame());
-    dispatch(manageTimer(manageTimerCommands.START));
   }
 
   const cell = cells[cellId];

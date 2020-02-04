@@ -8,11 +8,15 @@ const timer = (state = {}, action) => {
         ...state,
         elapsed: Math.trunc((new Date() - state.started) / 1000),
       };
-    case actions.STARTED_GAME:
-      return {
-        started: new Date(),
-        elapsed: 0,
-      }; 
+    case actions.UPDATED_GAME_STATUS:
+      if (action.status === actions.statuses.INPROGRESS) {
+        return {
+          started: new Date(),
+          elapsed: 0,
+        }; 
+      } else {
+        return state;
+      }
     case actions.INITIALIZED_GAME:
       return {
         started: null,
