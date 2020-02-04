@@ -13,12 +13,11 @@ const Cell = ({ cellId }) => {
     <div
       id={cellId}
       onClick={(e) => { dispatch(clickCell(e.target.id)); }}
-      className={`cell
-        ${isCovered ? 'blank' : 'exposed'}
+      className={`cell ${isCovered ? 'blank' : 'exposed'}
         ${hasMine && (gameStatus === 'WON' || gameStatus === 'LOST') ? 'mine' : ''}
         ${isFlagged ? 'flagged' : ''}`}
     >
-      {isCovered ? '.' : adjMineCount || '.'}
+      {isCovered ? null : adjMineCount || null}
     </div>
   )
 };

@@ -9,8 +9,7 @@ const Game = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initializeGame());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   const rowCount = useSelector(({ rowCount }) => rowCount);
   const colCount = useSelector(({ colCount }) => colCount);
@@ -21,12 +20,12 @@ const Game = () => {
   };
 
   return (
-    <div className="game" style={style}>
+    <div title="game" className="game" style={style}>
       <div
         onClick={() => dispatch(initializeGame())}
         className="smiley"
         >
-        {`Minesweeper  ${gameStatus === 'LOST' ? ':(' : ':)'}`}
+        {gameStatus === 'LOST' ? ':(' : ':)'}
       </div>
       <Grid
         rowCount={rowCount}

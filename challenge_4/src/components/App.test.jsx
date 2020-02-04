@@ -5,8 +5,8 @@ import App from './App.jsx';
 
 describe('App', () => {
   test('renders game title', () => {
-    const { getByText } = renderWithRedux(<App />);
-    const title = getByText(/Minesweeper/);
+    const { getByTitle } = renderWithRedux(<App />);
+    const title = getByTitle(/game/);
     expect(title).toBeInTheDocument();
   });
 })

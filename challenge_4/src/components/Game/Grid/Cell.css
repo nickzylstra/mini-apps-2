@@ -4,6 +4,7 @@
   display: inline-block;
   border: 1px solid black;
   cursor: default;
+  vertical-align: middle;
 }
 
 .exposed {
