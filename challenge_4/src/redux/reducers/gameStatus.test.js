@@ -5,8 +5,6 @@ import { statuses } from '../actions';
 const {
   INITIALIZED_GAME,
   UPDATED_GAME_STATUS,
-  LOST_GAME,
-  WON_GAME,
 } = actions;
 
 describe('gameStatus reducer', () => {
