@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from './Grid/Grid.jsx';
+import Smiley from './Smiley.jsx';
 import { initializeGame } from '../../redux/actions';
 import './Game.css'
 
@@ -13,7 +14,6 @@ const Game = () => {
 
   const rowCount = useSelector(({ rowCount }) => rowCount);
   const colCount = useSelector(({ colCount }) => colCount);
-  const gameStatus = useSelector(({ gameStatus }) => gameStatus);
   const style = {
     width: `${colCount * 18 + 20}px`,
     height: `${rowCount * 18 + 32}px`,
@@ -21,16 +21,8 @@ const Game = () => {
 
   return (
     <div title="game" className="game" style={style}>
-      <div
-        onClick={() => dispatch(initializeGame())}
-        className="smiley"
-        >
-        {gameStatus === 'LOST' ? ':(' : ':)'}
-      </div>
-      <Grid
-        rowCount={rowCount}
-        colCount={colCount}
-      />
+      <Smiley />
+      <Grid />
     </div>
   )
 };

@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import Row from './Row.jsx';
 import './Grid.css'
 
-const Grid = ({ rowCount, colCount }) => {
+const Grid = () => {
+  const rowCount = useSelector(({ rowCount }) => rowCount);
+  const colCount = useSelector(({ colCount }) => colCount);
   const grid = useSelector(({ grid }) => grid);
   const style = {
     width: `${colCount * 18}px`,
