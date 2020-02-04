@@ -1,6 +1,6 @@
 import mockStore from '../../../../testUtils/mockStore';
 import { clickCell } from './clickCell';
-import { UNCOVERED_CELL, UPDATED_GAME_STATUS, WON_GAME, statuses, } from '../index';
+import { UNCOVERED_CELL, UPDATED_GAME_STATUS, statuses, } from '../index';
 
 
 describe('clickCell', () => {
@@ -181,7 +181,7 @@ describe('clickCell', () => {
     const actions = store.getActions();
     const expectedPayload = [
       { type: UNCOVERED_CELL, cellId: cellIds[0] },
-      { type: WON_GAME },
+      { type: UPDATED_GAME_STATUS, status: statuses.WON },
     ];
     expect(actions).toEqual(expectedPayload);
   });
