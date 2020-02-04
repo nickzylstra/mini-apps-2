@@ -38,7 +38,6 @@ export const clickCell = (cellId) => (dispatch, getState) => {
   const cell = cells[cellId];
   if (cell.hasMine) {
     dispatch(loseGame());
-    dispatch(manageTimer(manageTimerCommands.STOP));
     return;
   }
   
