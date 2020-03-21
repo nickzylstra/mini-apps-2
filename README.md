@@ -1,2 +1,9 @@
 # mini-apps-2
-This is a project I completed as a student at [hackreactor](http://hackreactor.com).
+
+## 4 - Minesweeper
+
+## 3 - Bowling scoring
+
+## 2 - Crypto price history graph
+
+## 1 - Historic Event search
